@@ -1,16 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {Geist, Geist_Mono, Manrope, Raleway, Roboto} from "next/font/google";
+import '@mantine/core/styles.css';
+
+import {
+    Button,
+    ColorSchemeScript, colorsTuple,
+    createTheme,
+    MantineColorsTuple,
+    mantineHtmlProps,
+    MantineProvider, Title, virtualColor
+} from "@mantine/core";
+import AppLayout from "@/app/layout_app";
 import "./globals.css";
+import {theme} from "@/app/assets/theme";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const manrope = Manrope({
+    variable: "--font-manrope",
+    subsets: ['cyrillic'],
+    display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+
+const raleway = Raleway({
+
+  variable: "--font-raleway",
+  subsets: ['cyrillic', 'latin'],
+    display: 'swap',
 });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,11 +40,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru"  {...mantineHtmlProps} className={`${raleway.variable} ${manrope.variable}`}>
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased`}
       >
-        {children}
+        <MantineProvider theme={theme} >
+            <AppLayout>{children}</AppLayout>
+        </MantineProvider>
       </body>
     </html>
   );

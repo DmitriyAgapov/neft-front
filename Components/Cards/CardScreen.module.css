@@ -1,0 +1,49 @@
+.screen_cards {
+    position: relative;
+    overflow: hidden;
+    margin: 0 -4rem;
+    display: flex;
+    aspect-ratio: 1262/509;
+}
+
+.bgimg {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    position: relative;
+    object-fit: cover;
+    @media screen and (min-width: 64em){
+        object-fit: initial;
+    }
+}
+
+.items {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+    flex: 1 100%;
+    padding: 1.5rem ;
+    align-items: end;
+    & > * {
+        grid-column: span 4;
+    }
+    @media screen and (min-width: 48em){
+        grid-template-columns: repeat(8, 1fr);
+    }
+    @media screen and (min-width: 64em){
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+.card {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    color: white;
+    box-shadow: 0 7px 7px -5px rgba(0, 0, 0, 0.0392157), 0 10px 15px -5px rgba(0, 0, 0, 0.101961), 0 1px 3px rgba(0, 0, 0, 0.0509804);
+    background-color: var(--mantine-color-blue-9);
+}

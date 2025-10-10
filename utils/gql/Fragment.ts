@@ -1,0 +1,3 @@
+export const cardsFragment = `fragment SectionFragment on Section { cards { ... on ComponentLayoutCard { description title link { id title url } id image { url width height documentId } } } }`
+export const UploadFileFields = ` fragment UploadFileFields on UploadFile { url }`
+export const ProductFragment = ` ${UploadFileFields} fragment ProductFields on Product { title type short_dedcription description slug plotnost rotary dvigatel  schema { description id image { width height documentId ...UploadFileFields } }  spec_item { description id title } Feature { id description title image { width height documentId ...UploadFileFields } } Image { width height documentId ...UploadFileFields } specs Document { attachment { ...UploadFileFields } id title } }`

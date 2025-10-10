@@ -1,0 +1,70 @@
+.card {
+    grid-column: span 4;
+    position: relative;
+    background-color: var(--mantine-color-gray-1);
+    padding: 2rem;
+    border-radius: var(--radius-2xl);
+    display: grid;
+    align-content: space-between;
+    header {
+        position: relative;
+        z-index: 10;
+        max-width: 50%;
+        grid-row: 1;
+        grid-column: 1/-1;
+    }
+    footer {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        align-self: end;
+    }
+
+    @media screen and (min-width: 48em){
+        grid-column: span 4;
+    }
+
+    @media screen and (min-width: 64em){
+        grid-column: span 4;
+    }
+    @media screen and (min-width: 74em){
+        grid-column: span 6;
+    }
+
+    @media screen and (min-width: 90em){
+        grid-column: span 6;
+    }
+
+
+    aspect-ratio: 632 / 440;
+    transition: all ease-in-out 0.25s;
+
+    &:hover {
+        transition: all  ease-in-out 0.25s;
+        background-color: var(--mantine-color-blue-7);
+        svg {
+            rotate: 45deg;
+        }
+    }
+    img {
+        z-index: 1;
+        position: relative;
+        /*width: 100%;*/
+        grid-row: 1/3;
+        grid-column: 1/-1;
+        top: 0;
+        bottom: 0;
+        margin: 0 27% -22%;
+    }
+}
+.linkOverflow {
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: block;
+        z-index: 1;
+    }
+}
