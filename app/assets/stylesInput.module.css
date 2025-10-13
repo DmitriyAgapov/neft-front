@@ -1,0 +1,11 @@
+.root {
+    width: 100%;
+    input {
+        border-radius: .25rem;
+    }
+}
+.label {
+    font-weight: 600;
+    color: black;
+    font-size: 1rem;
+}

@@ -22,7 +22,7 @@ function TabsProduct({data : _data}: {data: any}) {
             panel: ' bg-gray-50 p-8 rounded-2xl'
         }}>
             <Tabs.List ref={setRootRef} className={classes.list}>
-                <Tabs.Tab value="description" ref={setControlRef('2')} className={classes.tab}>
+                <Tabs.Tab value="description" ref={setControlRef('1')} className={classes.tab}>
                     Описание
                 </Tabs.Tab>
                 <Tabs.Tab value="feature" ref={setControlRef('2')} className={classes.tab}>

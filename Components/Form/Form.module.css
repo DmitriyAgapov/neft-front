@@ -1,0 +1,8 @@
+.root {
+    display: grid;
+    gap: 2rem 1rem;
+    @media screen and (min-width: 48em){
+        grid-template-columns: 1fr 1fr;
+    }
+
+}

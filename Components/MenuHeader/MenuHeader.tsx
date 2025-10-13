@@ -8,8 +8,7 @@ import {useRouter} from "next/navigation";
 const data = [
     {
         title: "Продукция",
-        href: "product",
-        noHref: true,
+        href: "/product",
         subitems: [
             {
                 title: "Перемешивающие устройства (мешалки)",
@@ -25,25 +24,25 @@ const data = [
             },
             {
                 title: "Гидравлический инструмент «КРАБ»",
-                href: "hydraulic"
+                href: "hydraulic-tools"
             }
         ]
     },
     {
         title: "О компании",
-        href: "about",
+        href: "/about",
     },
     {
         title: "Документы",
-        href: "docs"
+        href: "/docs"
     },
     {
         title: "События",
-        href: "events"
+        href: "/events"
     },
     {
         title: "Контакты",
-        href: "contacts"
+        href: "/contacts"
     }
 ]
 const MenuHeader = () => {
@@ -51,11 +50,11 @@ const MenuHeader = () => {
     return <Group className={"col-span-7 !gap-0"}>{data.map((el, index) =>
         <Menu width={300} key={'menu_' + index} trigger="click-hover" >
         <Menu.Target>
-            <Button href={el.noHref ? undefined : el.href} component={"a"} className={"hover:border-b border-gray-500"} size={"md"} color={"gray-500"} variant={"transparent"} rightSection={el.subitems && <AccordionChevron className={'text-gray-500'}/>}>{el.title}</Button>
+            <Button href={el.href}  component={Link} className={"hover:border-b border-gray-500"} size={"md"} color={"gray-500"} variant={"transparent"} rightSection={el.subitems && <AccordionChevron className={'text-gray-500'}/>}>{el.title}</Button>
         </Menu.Target>
 
         {el.subitems ? <Menu.Dropdown>
-            {el.subitems.map((sel, index) => <Menu.Item key={"menu_subitem_" + index} onClick={() => router.push(`/${el.href}/${sel.href}`)}>
+            {el.subitems.map((sel, index) => <Menu.Item key={"menu_subitem_" + index} onClick={() => router.push(`${el.href}/${sel.href}`)}>
                 {sel.title}
             </Menu.Item>)}
         </Menu.Dropdown> : null}

@@ -17,14 +17,14 @@ function TabsProductControls({data : _data}: {data: any}) {
         controlsRefs[val] = node;
         setControlsRefs(controlsRefs);
     };
-    console.log(_data);
+
     return (
         <Tabs variant="none" value={value} onChange={setValue} classNames={{
             root: 'col-span-full mt-16',
             panel: ' bg-gray-50 p-8 rounded-2xl'
         }}>
             <Tabs.List ref={setRootRef} className={classes.list}>
-                <Tabs.Tab value="description" ref={setControlRef('2')} className={classes.tab}>
+                <Tabs.Tab value="description" ref={setControlRef('1')} className={classes.tab}>
                     Описание
                 </Tabs.Tab>
                 <Tabs.Tab value="specs" ref={setControlRef('2')} className={classes.tab}>

@@ -1,0 +1,11 @@
+.card {
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--mantine-color-gray-1);
+
+}
+.card_image {
+    &:nth-child(1) {
+        grid-column: 1/4;
+    }
+}

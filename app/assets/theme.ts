@@ -1,5 +1,6 @@
-import {colorsTuple, createTheme, MantineColorsTuple} from "@mantine/core";
+import {Button, colorsTuple, createTheme, Input, MantineColorsTuple, Select, Textarea, TextInput} from "@mantine/core";
 
+import {components} from "@/app/assets/components";
 const colors: MantineColorsTuple = [
     '#E7F5FF',
     '#D0EBFF',
@@ -14,6 +15,7 @@ const colors: MantineColorsTuple = [
 ]
 
 export const theme = createTheme({
+    components: components,
     primaryColor: 'blue',
     primaryShade: 8,
     defaultRadius: 'md',

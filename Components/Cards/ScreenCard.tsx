@@ -26,7 +26,7 @@ const ScreenCard = ({items}: { items: Record<string, unknown | any | undefined>[
 
 
     if (!(!!items)) return;
-    return (<div className={styles.screen_cards} style={{
+    return (<div className={styles.screen_cards + " animate-scaley"} style={{
             minHeight: items[itemIndex].image[0].height + 32 + 'px'
         }}>
             <Image fill={true} className={styles.bgimg} style={{maxWidth: 'none'}} alt={''}

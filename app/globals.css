@@ -42,6 +42,40 @@
             opacity: 1;
         }
     }
+    --animate-scaley: scaley  0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    --animate-scaley-back: scale-in-ver-bottom  0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    @keyframes scale-in-ver-bottom {
+        0% {
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+            -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+            opacity: 1;
+        }
+    }
+    @keyframes scaley {
+        0% {
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+            opacity: 1;
+        }
+    }
     --animate-hideandopacity_back: wiggle .5s linear backwards;
     @keyframes wiggle {
         0%,
@@ -76,21 +110,13 @@ body {
   -moz-osx-font-smoothing: var(--mantine-moz-font-smoothing);
   overflow-x: hidden;
 }
+
 @layer base {
-    a {
-        color: var(--text-link);
-        border-bottom: 1px solid var(--text-link);
-        &:hover {
-            border-bottom-color: transparent;
-        }
-    }
-}
-@layer mantine {
 
   h1, h2, h3, h4, h5, h6 {
     color: black;
       margin: 1rem 0;
-      font-weight: 900;
+      font-weight: 800;
   }
   ul {
     list-style: disc;
@@ -102,7 +128,7 @@ body {
 
 
 }
-@layer theme {
+@layer base {
 
   /*h1 {*/
   /*  font-size: 2rem;*/
@@ -161,6 +187,45 @@ body {
   @media screen and  (max-width: 74em) {
   }
   @media screen and (min-width: 90em) {
+      h1 {
+          font-size: 4rem;
+          line-height: 1;
+      }
+      h2 {
 
+          font-size: 3rem;
+          line-height: 1.25;
+      }
+      h3 {
+          font-size: 1.5rem;
+          line-height: 1.5;
+      }
+      h4 {
+          font-size: 1.25rem;
+          line-height: 1.5rem;
+      }
+      h5 {
+
+          font-size: 1rem;
+          line-height: 1.25;
+      }
+      h6 {
+          --mantine-h1-font-size: .75rem;
+          line-height: 1rem;
+      }
   }
+
+}
+@layer base {
+
+    main {
+        a {
+            color: var(--text-link);
+            border-bottom: 1px solid var(--text-link);
+
+            &:hover {
+                border-bottom-color: transparent;
+            }
+        }
+    }
 }

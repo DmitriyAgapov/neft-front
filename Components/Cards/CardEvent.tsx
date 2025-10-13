@@ -1,0 +1,35 @@
+import {Button, Title, Text} from "@mantine/core";
+import ImageCustoms from "@/Components/ImageCustom/ImageCustoms/ImageCustoms";
+import CustomButton from "@/Components/CustomButton/CustomButton";
+import styles from "./CardEvent.module.css";
+
+export interface CardEventProps {
+    documentId: string;
+    title: string;
+    url: string;
+    create_date: string;
+    image: {
+        width: number;
+        height: number;
+        url: string;
+        documentId: string;
+    }
+}
+
+const CardEvent = (props: CardEventProps) => {
+    return <div key={props.documentId} className={styles.root + ' card_event rounded-xl p-8 bg-white'}>
+        <div data-content={"card_title"}>
+            <Text  c={"white"} size={'xs'} className={"mb-3"}>{props.create_date}</Text>
+            <Title order={5} c={"white"}>
+                {props.title}
+            </Title>
+        </div>
+        <div data-content={"card_image"}>
+            <ImageCustoms src={props.image.url} height={props.image.height} width={props.image.width}/>
+        </div>
+        <div data-content={"card_link"}>
+            <CustomButton size={"md"} variant={"default"} hreftype={"link"} href={`/events/${props.url}`}>Читать</CustomButton>.
+        </div>
+    </div>
+}
+export default CardEvent

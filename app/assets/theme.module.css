@@ -1,0 +1,40 @@
+.root {
+    &[data-variant='glass'] {
+        border: 0 !important;
+        color: black;
+        background: rgba(134, 142, 150, 0.1);
+        &:focus {
+            border-color: var(--mantine-color-blue-filled);
+        }
+        &:hover {
+            background: rgba(134, 142, 150, 0.3);
+            border-color: var(--mantine-color-blue-filled);
+        }
+
+    }
+    &[data-variant='icon'] {
+        border: 0 !important;
+        color: var(--mantine-color-gray-7);
+        background: rgba(134, 142, 150, 0.1);
+        &:focus {
+            border-color: var(--mantine-color-blue-filled);
+        }
+        &:hover {
+            background: rgba(134, 142, 150, 0.3);
+            border-color: var(--mantine-color-blue-filled);
+        }
+    }
+    &[data-variant='gray'] {
+        border: 0 !important;
+        color: white;
+        background: var(--mantine-color-gray-6);
+        &:focus {
+            border-color: var(--mantine-color-blue-filled);
+        }
+        &:hover {
+            background: var(--mantine-color-gray-8);
+            border-color: var(--mantine-color-blue-filled);
+        }
+    }
+
+}

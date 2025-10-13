@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import {Geist, Geist_Mono, Manrope, Raleway, Roboto} from "next/font/google";
+import { Manrope, Raleway} from "next/font/google";
 import '@mantine/core/styles.css';
 
 import {
-    Button,
-    ColorSchemeScript, colorsTuple,
-    createTheme,
-    MantineColorsTuple,
     mantineHtmlProps,
-    MantineProvider, Title, virtualColor
+    MantineProvider
 } from "@mantine/core";
 import AppLayout from "@/app/layout_app";
 import "./globals.css";

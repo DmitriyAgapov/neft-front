@@ -37,9 +37,9 @@
     [data-content="section_variants"] {
         grid-column: 1/5;
     }
-    &[data-content="section-controls"], &[data-content="section-signals"] {
+    &[data-content="section-controls"], &[data-content="section-signals"],&[data-content="section-hydraulic-product"], &[data-content="section-hydraulic-tools"] {
         grid-template-rows: min-content;
-        [data-type="section-controls-intro"],[data-type="section-signals-intro"] {
+        [data-type="section-controls-intro"],[data-type="section-signals-intro"],[data-type="section-hydraulic-product-intro"],[data-type="section-hydraulic-tools-intro"] {
             grid-column: 1/7;
             grid-row: 1/2;
         }

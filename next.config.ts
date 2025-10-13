@@ -12,7 +12,10 @@ const nextConfig: NextConfig = {
                 hostname: '127.0.0.1',
                 port: '1337',
         }]
-    }
+    },
+    experimental: {
+        optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+    },
   /* config options here */
 };
 

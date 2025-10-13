@@ -4,6 +4,8 @@
     margin: 0 -4rem;
     display: flex;
     aspect-ratio: 1262/509;
+    transform: scale(1.05);
+
 }
 
 .bgimg {

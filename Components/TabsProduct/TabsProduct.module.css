@@ -19,7 +19,8 @@
 
 .tab {
     z-index: 1;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 500;
     transition: color 100ms ease;
     color: black;
     border-radius: .5rem;

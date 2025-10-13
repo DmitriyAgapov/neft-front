@@ -1,5 +1,4 @@
 import {queryWrapper} from "@/utils/queryWrapper";
-import {productBySlug} from "@/utils/gql/config";
 import styles from "./style.module.css";
 import styless from "@/Components/ProductSelector//ProductSelector.module.css";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
@@ -7,16 +6,17 @@ import {Button, Title} from "@mantine/core";
 import ProductRoot from "@/Components/ProductVariantStore/ProductRoot";
 import {ImageCustoms} from "@/Components/ImageCustom";
 import Section from "@/Components/Section/Section";
-import TabsProductControls from "@/Components/TabsProduct/TabsProductControls";
 import Breadcrumbs from "@/Components/Breadcrumbs/Breadcrumbs";
+import {pageTools} from "@/utils/gql/pageTools";
+import TabsProductTools from "@/Components/TabsProduct/TabsProductTools";
 
 export default async function Page({params}: { params: Promise<{ slug: string }> }) {
     const {slug} = await params;
-    const {products} = await queryWrapper(productBySlug, {
-        "filters": {"slug": {"eq": slug}}
-    });
-    if (!products[0]) return
-    const {title, type, description, Image, short_dedcription, cards, gallery} = products[0];
+    const {category} = await queryWrapper(pageTools);
+    console.log(category)
+    if (!category) return
+    const {title, description,child_categories, image, short_dedcription, category:type, cards, gallery} = category;
+    console.log(description)
     return <>
 
         <section className={styles.section} data-content={`section-${type}`}>
@@ -42,13 +42,44 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             <ProductRoot>
                 <div className={styless.ProductSelector} data-type={`product-${type}`}>
                     <div className={styless.wrapper} data-content={`wrapper-${type}`}>
-                        <ImageCustoms width={Image.width} height={Image.height} src={Image.url}/>
+                        <ImageCustoms width={image.width} height={image.height} src={image.url}/>
                     </div>
                 </div>
             </ProductRoot>
-            <TabsProductControls data={products[0]}/>
+
+            {/*<TabsProductControls data={products[0]}/>*/}
 
         </section>
+        <section className={styles.section + " bg-gray-100 !p-8 rounded-2xl"} data-content={`section-komplekt`}>
+            <div data-content={"section_title relative"}>
+                <Title order={3} size={"h3"}>Что входит в комплект/сборку?</Title>
+            </div>
+            <div data-content={"section_cards"} className={'mt-4  grid grid-cols-4 gap-4'}>
+                {child_categories ? child_categories.map((item: any) => <div
+                    key={item.category} className={'flex flex-col flex-wrap card_child_category aspect-square bg-white rounded-xl px-6 pt-8 pb-4 relative'}>
+                    <div className={'card_child_category_title relative z-10'}>
+                        <Title order={4} size={"h4"}>{item.title}</Title>
+                    </div>
+                    <div className={'card_child_category_image absolute top-4 left-4  bottom-4 right-4 '}>
+                        <ImageCustoms width={item.image.width} height={item.image.height} src={item.image.url}/>
+                    </div>
+                    <div className={'card_child_category_link relative z-10 mt-auto'}>
+                        <Button  variant={"glass"} href={`/product/${type}/${item.category}`} size={"md"} component={"a"}>Смотреть все</Button>
+                    </div>
+                </div>) : null}
+            </div>
+        </section>
+        <section className={styles.section + " "} data-content={`section-tabs`}>
+            <TabsProductTools data={child_categories}/>
+        </section>
+        <section className={styles.section + " bg-gray-100 !p-8 rounded-2xl"} data-content={`section-description`}>
+            <div data-content={"section_description relative"}>
+            <BlockRendererClient
+                content={description}
+            />
+            </div>
+        </section>
+
         <Section title={'Оставьте заявку '} type={"form"} link={{title: "#", url: "form"}} description={[{
             type: "paragraph",
             "children": [
