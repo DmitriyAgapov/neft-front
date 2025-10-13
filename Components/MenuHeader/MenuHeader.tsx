@@ -1,5 +1,5 @@
 'use client'
-import {Menu, Button, Text, Group, ComboboxChevron, AccordionChevron, NavLink} from '@mantine/core';
+import {Menu, Button, Group,  AccordionChevron} from '@mantine/core';
 
 import React from 'react';
 import Link from "next/link";

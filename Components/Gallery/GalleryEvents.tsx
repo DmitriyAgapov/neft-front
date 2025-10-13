@@ -2,7 +2,6 @@
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import {Carousel} from "@mantine/carousel";
-import {ImageCustoms} from "@/Components/ImageCustom";
 import styles from "./Gallery.module.css";
 import CardEvent, {CardEventProps} from "@/Components/Cards/CardEvent";
 

@@ -1,4 +1,4 @@
-import {Button, Title, Text} from "@mantine/core";
+import { Title, Text} from "@mantine/core";
 import ImageCustoms from "@/Components/ImageCustom/ImageCustoms/ImageCustoms";
 import CustomButton from "@/Components/CustomButton/CustomButton";
 import styles from "./CardEvent.module.css";

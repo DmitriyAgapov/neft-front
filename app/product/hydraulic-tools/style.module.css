@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: var(--content-grid);
     gap: var(--gap);
-    grid-template-rows: fit-content;
+    grid-template-rows: min-content;
     align-items: start;
 
     & > [data-content] {

@@ -1,6 +1,6 @@
 import {queryWrapper} from "@/utils/queryWrapper";
 import styles from "@/app/[url]/styles.module.css";
-import {Button, Text, Title} from "@mantine/core";
+import {Title} from "@mantine/core";
 import {pageEvents} from "@/utils/gql/pageTools";
 import CardEvent from "@/Components/Cards/CardEvent";
 import Section from "@/Components/Section/Section";

@@ -5,6 +5,7 @@ import {
 
 export default function BlockRendererClient({content,}: { readonly content: BlocksContent; }) {
     if (!content) return null;
+    // @ts-ignore
     if (content[0].children[0].text === "") return null;
     console.log(content, 'content')
     return (

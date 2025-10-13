@@ -1,7 +1,7 @@
 'use client'
 
 import {usePathname} from 'next/navigation'
-import {Breadcrumbs as Brdcrmbs, Title, Anchor} from "@mantine/core";
+import {Breadcrumbs as Brdcrmbs, Anchor} from "@mantine/core";
 import {ArrowRight} from "@/Components/Icons/Icons";
 
 const titles:{

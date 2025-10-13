@@ -1,5 +1,4 @@
 import {queryWrapper} from "@/utils/queryWrapper";
-import {sectionBeforeScreen} from "@/utils/gql/section";
 import Section, {SectonProps} from "@/Components/Section/Section";
 import {pagePage} from "@/utils/gql/pageTools";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";

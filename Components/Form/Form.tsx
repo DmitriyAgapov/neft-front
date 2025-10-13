@@ -1,7 +1,7 @@
 'use client'
 
 import {useForm} from "@mantine/form";
-import {Button, FileButton, Group, NumberInput, Select, Textarea, TextInput} from "@mantine/core";
+import {Button, FileButton, NumberInput, Select, Textarea, TextInput} from "@mantine/core";
 import styles from "./Form.module.css";
 import {EmailIcon, FileIcon, PhoneIcon} from "@/Components/Icons/Icons";
 const purposeData = [
