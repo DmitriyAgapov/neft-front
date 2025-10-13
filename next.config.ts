@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
                 hostname: '127.0.0.1',
                 port: '1337',
         },
+            {
+                protocol: 'https',
+                hostname: 'neft-front.vercel.app',
+                port: '',
+        },
          {
                 protocol: 'http',
                 hostname: 'localhost',
