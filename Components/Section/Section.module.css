@@ -7,9 +7,7 @@
     & > [data-content] {
         grid-column: 1/-1;
     }
-    & > [data-content="section_gallery"] {
-        margin-right: calc(640px - 50vw);
-    }
+
     [data-content="section_title"] {
         grid-column: 1/-1;
 
@@ -303,6 +301,7 @@
         }
     }
     &[data-content="section-our_manufacture"] {
+
         [data-content="section_gallery"] {
             display: grid;
             gap: 6rem;

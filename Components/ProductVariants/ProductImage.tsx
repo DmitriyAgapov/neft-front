@@ -12,16 +12,16 @@ const ProductImage = observer((props:any) => {
 
     const srcImg = useMemo(() => {
         if (path) {
-            const value = `/products/mixers/variants/${path}.png`;
+            const value = process.env.NEXT_PUBLIC_IMG_PROD + `products/mixers/variants/${path}.png`;
             setValue(value)
             return value
         } else {
             return props.url
         }
     }, [path, props.url]);
-
+    console.log(srcImg)
     return <div data-content={"section_image"} className={srcImg !== value ? "animate-hideandopacity" : ""}>
-        <ImageCustoms src={srcImg} {...props} alt={""}/>
+        <ImageCustoms src={srcImg} width={props.width} height={props.height}/>
     </div>
 })
 export default ProductImage

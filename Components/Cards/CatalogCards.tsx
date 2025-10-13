@@ -19,7 +19,7 @@ const CatalogCard = ({props}: {props:CatalogCardProps}) => {
             </header>
             {(props.image && props.image.length) ? (() => {
                 const {documentId, ...prop} = props.image[0];
-                return <Image alt={''} key={documentId} src={process.env.NEXT_BACK + prop.url} {...prop} />
+                return <Image alt={''} key={documentId} src={prop.url} {...prop} />
             })() : null}
             <footer>
                 <Link href={props.link?.url as string} className={styles.linkOverflow + " w-10 h-10 bg-blue-800 rounded-md flex justify-center items-center hover:bg-blue-700"}>

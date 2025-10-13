@@ -7,7 +7,7 @@ const Logo = ({img, inversed = false}:any) => {
     return (
         <div className={styles.logo}>
             <Link href={"/"}>
-                <Image src={`${process.env.NEXT_BACK}${url}`} width={width} height={height} alt={''}/>
+                <Image src={`${url}`} width={width} height={height} alt={''}/>
             </Link>
         </div>
     )

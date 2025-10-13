@@ -2,7 +2,7 @@ import Image, {StaticImageData} from "next/image";
 
 const ImageCustoms = (props:StaticImageData) => {
     console.log(props)
-    return <Image alt={''} src={`${process.env.NEXT_BACK}`+props.src} width={props.width} height={props.height} />
+    return <Image alt={''} src={props.src} width={props.width} height={props.height} />
 }
 
 export default ImageCustoms

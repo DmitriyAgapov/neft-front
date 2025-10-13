@@ -23,7 +23,7 @@ export default class ProductVariantStoreClass {
         Object.entries(this.filters).forEach(([key, value]) => {
             if (this.filters[key] !== "") {
                 _filters[key] = {
-                    contains: value
+                    containsi: value
                 }
             }
         })

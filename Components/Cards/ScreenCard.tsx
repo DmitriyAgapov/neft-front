@@ -30,7 +30,7 @@ const ScreenCard = ({items}: { items: Record<string, unknown | any | undefined>[
             minHeight: items[itemIndex].image[0].height + 32 + 'px'
         }}>
             <Image fill={true} className={styles.bgimg} style={{maxWidth: 'none'}} alt={''}
-                   src={`${process.env.NEXT_BACK}${items[itemIndex].image[0].url}`}
+                   src={`${items[itemIndex].image[0].url}`}
                 // width={items[itemIndex].image[0].width}
                 // height={items[itemIndex].image[0].height}
             />

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+
   --text-color: var(--mantine-color-gray-7);
   --text-default: #212529;
   --text-link: #228BE6;
@@ -129,53 +130,54 @@ body {
 
 }
 @layer base {
-    --margin: 0;
-    --content-grid: repeat(4, 1fr);
-    --gap: 1rem;
+    :root {
+        --margin: 0;
+        --content-grid: repeat(4, 1fr);
+        --gap: 1rem;
 
-    @media screen and (min-width: 48em) {
-        --content-grid: repeat(8, 1fr);
+        @media screen and (min-width: 48em) {
+            --content-grid: repeat(8, 1fr);
+        }
+
+        @media screen and (min-width: 64em) {
+            --margin: 1rem;
+            --content-grid: repeat(8, 1fr);
+        }
+
+        @media screen and (min-width: 72em) {
+            --margin: minmax(1.5rem, 1fr);
+            --content-grid: repeat(12, minmax(74px, 78px));
+        }
+
+        @media screen and (min-width: 90em) {
+            --margin: minmax(1.5rem, 1fr);
+            --content-grid: repeat(12, minmax(86px, 92px));
+        }
+        /*h1 {*/
+        /*  font-size: 2rem;*/
+        /*  line-height: 2rem;*/
+        /*}*/
+        /*h2 {*/
+        /*  font-size: 1.75rem;*/
+        /*  line-height: 2rem;*/
+        /*}*/
+        /*h3 {*/
+        /*  font-size: 1.25rem;*/
+        /*  line-height: 1.5rem;*/
+        /*}*/
+        /*h4 {*/
+        /*  font-size: 1rem;*/
+        /*  line-height: 1.5rem;*/
+        /*}*/
+        /*h5 {*/
+        /*  font-size: .875rem;*/
+        /*  line-height: 1rem;*/
+        /*}*/
+        /*h6 {*/
+        /*  font-size: .75rem;*/
+        /*  line-height: 1rem;*/
+        /*}*/
     }
-
-    @media screen and (min-width: 64em) {
-        --margin: 1rem;
-        --content-grid: repeat(8, 1fr);
-    }
-
-    @media screen and (min-width: 72em) {
-        --margin: minmax(1.5rem, 1fr);
-        --content-grid: repeat(12, minmax(74px, 78px));
-    }
-
-    @media screen and (min-width: 90em) {
-        --margin: minmax(1.5rem, 1fr);
-        --content-grid: repeat(12, minmax(86px, 92px));
-    }
-  /*h1 {*/
-  /*  font-size: 2rem;*/
-  /*  line-height: 2rem;*/
-  /*}*/
-  /*h2 {*/
-  /*  font-size: 1.75rem;*/
-  /*  line-height: 2rem;*/
-  /*}*/
-  /*h3 {*/
-  /*  font-size: 1.25rem;*/
-  /*  line-height: 1.5rem;*/
-  /*}*/
-  /*h4 {*/
-  /*  font-size: 1rem;*/
-  /*  line-height: 1.5rem;*/
-  /*}*/
-  /*h5 {*/
-  /*  font-size: .875rem;*/
-  /*  line-height: 1rem;*/
-  /*}*/
-  /*h6 {*/
-  /*  font-size: .75rem;*/
-  /*  line-height: 1rem;*/
-  /*}*/
-
   @media screen and (min-width: 48em) {
 
   }
