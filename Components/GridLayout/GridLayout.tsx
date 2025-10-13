@@ -22,7 +22,7 @@ const GridLayout = async ({children}: React.ReactNode & any) => {
     const data = await queryWrapper(config);
 
     return (
-        <AppShell className={styles.grid}>
+        <AppShell unstyled className={styles.grid}>
             <AppShellHeader className={styles.header}>
                 <div data-content={"wrapper"}>
                     <Logo img={data.konfiguracziyaSajta.logo}/>
