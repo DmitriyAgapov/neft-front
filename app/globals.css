@@ -129,7 +129,28 @@ body {
 
 }
 @layer base {
+    --margin: 0;
+    --content-grid: repeat(4, 1fr);
+    --gap: 1rem;
 
+    @media screen and (min-width: 48em) {
+        --content-grid: repeat(8, 1fr);
+    }
+
+    @media screen and (min-width: 64em) {
+        --margin: 1rem;
+        --content-grid: repeat(8, 1fr);
+    }
+
+    @media screen and (min-width: 72em) {
+        --margin: minmax(1.5rem, 1fr);
+        --content-grid: repeat(12, minmax(74px, 78px));
+    }
+
+    @media screen and (min-width: 90em) {
+        --margin: minmax(1.5rem, 1fr);
+        --content-grid: repeat(12, minmax(86px, 92px));
+    }
   /*h1 {*/
   /*  font-size: 2rem;*/
   /*  line-height: 2rem;*/
