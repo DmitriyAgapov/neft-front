@@ -1,12 +1,11 @@
 import styles from "./GridLayout.module.css";
 import React from "react";
-import {AppShell, AppShellFooter, AppShellHeader, AppShellMain, Button, Text, Title} from "@mantine/core";
+import { AppShellFooter,  AppShellMain,Text, Title} from "@mantine/core";
 import {queryWrapper} from "@/utils/queryWrapper";
 import {config} from "@/utils/gql/config";
 import Logo from "@/Components/Logo/Logo";
 import ImageCustoms from "../ImageCustom/ImageCustoms/ImageCustoms";
-import MenuHeader from "@/Components/MenuHeader/MenuHeader";
-import {LinkForm} from "@/Components/Icons/Icons";
+import GridLayoutWrapper from "@/Components/GridLayout/GridLayoutWrapper";
 
 
 const AddressItem = (el: any) => <li className={'grid !my-2'}>
@@ -20,30 +19,8 @@ const EmailItem = (el: any) => <li className={'grid !my-2'}>
 
 const GridLayout = async ({children}: React.ReactNode & any) => {
     const data = await queryWrapper(config);
-
     return (
-        <AppShell unstyled className={styles.grid}>
-            <AppShellHeader className={styles.header}>
-                <div data-content={"wrapper"}>
-                    <Logo img={data.konfiguracziyaSajta.logo}/>
-                    <MenuHeader/>
-                    <div className={'col-span-2 font-semibold'}>
-                        <ul>
-                            {<li className={'grid my-2 gap-2 justify-center'}>
-                                <a href={`tel:${data.konfiguracziyaSajta.Phones[0].number}`}
-                                   className={'text-lg font-semibold'}>
-                                    {data.konfiguracziyaSajta.Phones[0].phone}
-                                </a>
-                                <Button component={"a"} href={"form"} className={'!bg-gray-100 !text-gray-600'}
-                                        variant={"light"} rightSection={<LinkForm className={'w-4 h-4 *:fill-gray-600'}/>}>Оставить
-                                    заявку</Button>
-                            </li>}
-                        </ul>
-                    </div>
-                </div>
-
-
-            </AppShellHeader>
+        <GridLayoutWrapper data={data}>
             <AppShellMain className={styles.main}>
                 {children}
             </AppShellMain>
@@ -94,7 +71,7 @@ const GridLayout = async ({children}: React.ReactNode & any) => {
                     </div>
                 </div>
             </AppShellFooter>
-        </AppShell>
+        </GridLayoutWrapper>
     )
 }
 export default GridLayout

@@ -153,30 +153,31 @@ body {
             --margin: minmax(1.5rem, 1fr);
             --content-grid: repeat(12, minmax(86px, 92px));
         }
-        /*h1 {*/
-        /*  font-size: 2rem;*/
-        /*  line-height: 2rem;*/
-        /*}*/
-        /*h2 {*/
-        /*  font-size: 1.75rem;*/
-        /*  line-height: 2rem;*/
-        /*}*/
-        /*h3 {*/
-        /*  font-size: 1.25rem;*/
-        /*  line-height: 1.5rem;*/
-        /*}*/
-        /*h4 {*/
-        /*  font-size: 1rem;*/
-        /*  line-height: 1.5rem;*/
-        /*}*/
-        /*h5 {*/
-        /*  font-size: .875rem;*/
-        /*  line-height: 1rem;*/
-        /*}*/
-        /*h6 {*/
-        /*  font-size: .75rem;*/
-        /*  line-height: 1rem;*/
-        /*}*/
+
+    }
+    h1 {
+        font-size: var(--mantine-h1-font-size);
+        line-height: var( --mantine-h1-line-height);
+    }
+    h2 {
+        font-size: var(--mantine-h2-font-size);
+        line-height: var( --mantine-h2-line-height);
+    }
+    h3 {
+        font-size: var(--mantine-h3-font-size);
+        line-height: var( --mantine-h3-line-height);
+    }
+    h4 {
+        font-size: var(--mantine-h4-font-size);
+        line-height: var( --mantine-h4-line-height);
+    }
+    h5 {
+        font-size: var(--mantine-h5-font-size);
+        line-height: var( --mantine-h5-line-height);
+    }
+    h6 {
+        font-size: var(--mantine-h6-font-size);
+        line-height: var( --mantine-h6-line-height);
     }
   @media screen and (min-width: 48em) {
 
@@ -185,25 +186,26 @@ body {
     h1 {
       --mantine-h1-font-size: 2rem;
       --mantine-h1-line-height: 2rem;
+
     }
     h2 {
-      --mantine-h1-font-size: 1.75rem;
+      --mantine-h2-font-size: 1.75rem;
       line-height: 2rem;
     }
     h3 {
-      --mantine-h1-font-size: 1.25rem;
+      --mantine-h3-font-size: 1.25rem;
       line-height: 1.5rem;
     }
     h4 {
-      --mantine-h1-font-size: 1rem;
+      --mantine-h4-font-size: 1rem;
       line-height: 1.5rem;
     }
     h5 {
-      --mantine-h1-font-size: .875rem;
+      --mantine-h5-font-size: .875rem;
       line-height: 1rem;
     }
     h6 {
-      --mantine-h1-font-size: .75rem;
+      --mantine-h6-font-size: .75rem;
       line-height: 1rem;
     }
   }

@@ -1,3 +1,21 @@
 .logo {
-    grid-column: span 3;
+    grid-column: span 2;
+    overflow: hidden;
+    align-self: start;
+    height: 3rem;
+    @media screen and (min-width: 64em){
+        grid-column: span 3;
+        height: 5rem;
+    }
+    display: inline-flex;
+    a {
+        flex: 1;
+    }
+    svg {
+        object-fit: cover;
+        max-width: 100%;
+        display: block;
+        height: 100%;
+    }
+
 }

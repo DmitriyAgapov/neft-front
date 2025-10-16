@@ -41,7 +41,7 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        <MantineProvider theme={theme} >
+        <MantineProvider theme={theme} defaultColorScheme={"light"} forceColorScheme={"light"}>
             <AppLayout>{children}</AppLayout>
         </MantineProvider>
       </body>

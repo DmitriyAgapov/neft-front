@@ -24,6 +24,13 @@
             border-color: var(--mantine-color-blue-filled);
         }
     }
+    &[data-variant='transparent'] {
+        font-weight: normal;
+        color: var(--mantine-color-gray-7);
+        @media screen and (max-width: 64em){
+
+        }
+    }
     &[data-variant='gray'] {
         border: 0 !important;
         color: white;

@@ -1,9 +1,11 @@
 .screen_cards {
     position: relative;
     overflow: hidden;
-    margin: 0 -4rem;
+    @media screen and (min-width: 64em){
+        margin: 0 -4rem;
+    }
     display: flex;
-    aspect-ratio: 1262/509;
+    /*aspect-ratio: 1262/509;*/
     transform: scale(1.05);
 
 }
@@ -32,11 +34,17 @@
     & > * {
         grid-column: span 4;
     }
-    @media screen and (min-width: 48em){
-        grid-template-columns: repeat(8, 1fr);
+    @media screen and (min-width: 64em){
+        grid-template-columns: repeat(9, 1fr);
+        & > * {
+            grid-column: span 3;
+        }
     }
     @media screen and (min-width: 64em){
         grid-template-columns: repeat(12, 1fr);
+        & > * {
+            grid-column: span 4;
+        }
     }
 }
 

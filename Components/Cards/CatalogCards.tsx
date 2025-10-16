@@ -3,6 +3,7 @@ import {Title} from "@mantine/core";
 import Link from "next/link";
 import {IconUp} from "@/Components/Icons/Icons";
 import Image from "next/image";
+import {ImageCustoms} from "@/Components/ImageCustom";
 
 type CatalogCardProps = {
     title: string | undefined,
@@ -19,7 +20,7 @@ const CatalogCard = ({props}: {props:CatalogCardProps}) => {
             </header>
             {(props.image && props.image.length) ? (() => {
                 const {documentId, ...prop} = props.image[0];
-                return <Image alt={''} key={documentId} src={prop.url} {...prop} />
+                return <ImageCustoms key={documentId} src={prop.url} {...prop} />
             })() : null}
             <footer>
                 <Link href={props.link?.url as string} className={styles.linkOverflow + " w-10 h-10 bg-blue-800 rounded-md flex justify-center items-center hover:bg-blue-700"}>

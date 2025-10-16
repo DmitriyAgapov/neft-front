@@ -3,8 +3,14 @@
     --columns: var(--margin) var(--content-grid) var(--margin);
     grid-template-columns: var(--columns);
     gap: 0 var(--gap);
+    max-width: 100vw;
     & > * {
         grid-column: 2/-2;
+    }
+    &:has(header[data-open="true"]) {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
     }
 }
 
@@ -26,11 +32,77 @@
 }
 
 .header {
-    height: 120px;
-    border-bottom: 1px solid var(--border-default);
+    @media screen and (min-width: 64em) {
+        height: 120px;
+        & >  [data-content="wrapper"] {
+            align-items: center;
+        }
 
-    & >  [data-content="wrapper"] {
-        align-items: center;
+
+    }
+    border-bottom: 1px solid var(--border-default);
+    align-items: start;
+    align-content: start;
+    overflow: hidden;
+
+
+    [data-content="wrapper"] {
+        align-items: start;
+        align-content: start;
+    }
+    &[data-open="false"] {
+        [data-content="menu"], [data-content="links"]  {
+            max-height: 0;
+
+            display: none;
+        }
+    }
+    &[data-open="true"] {
+        overflow: visible;
+        [data-content="wrapper"] {
+            height: 100dvh;
+        }
+        [data-content="menu"] {
+            max-height: 100%;
+            display: grid;
+            justify-content: stretch;
+            & > * {
+                border-radius: 0;
+                justify-self: stretch;
+                display: block;
+                color: var(--mantine-color-text);
+                border-bottom: 1px solid var(--color-gray-300);
+            }
+            & * {
+                padding-left: 0;
+                margin-left: 0;
+                text-align: left;
+                justify-content: start;
+            }
+            [data-variant="transparent"] {
+                & > span {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                & + [data-menu-dropdown="true"] {
+                    position: relative;
+                }
+            }
+        }
+        [data-content="links"] {
+            grid-column: 1/-1;
+            margin-top: 2rem;
+            ul {
+               padding-left: 0;
+            }
+            a {
+                width: 100%;
+                text-align: center;
+            }
+            li {
+                justify-content: stretch;
+            }
+        }
     }
 }
 

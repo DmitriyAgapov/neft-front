@@ -16,7 +16,9 @@ const ProductVariants = ({products}: {products: any[]}) => {
         }
         return products.map((el:any) => <VariantCard setSelected={setSelected} key={el.slug} image={el.Image ? {
             ...el.Image,
-            ...(el.Image ? {...el.Image, src: process.env.NEXT_PUBLIC_NEXT_BACK_IMG+el.Image.url} : {})
+            ...(el.Image ? {...el.Image,
+                src: el.Image.url
+            } : {})
         } : null} {...el}/>)
     }, [selected, products])
     return (

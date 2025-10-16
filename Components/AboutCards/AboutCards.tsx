@@ -4,7 +4,7 @@ import {ImageCustoms} from "@/Components/ImageCustom";
 import styles from "./AboutCards.module.css";
 const AboutCards = ({cards}: Record<string, any>) => {
     return cards.map((card: any, index: number) => {
-            return <div key={card.id} className={'contents'} data-type={"card_wrapper"}>
+            return <div key={card.id} className={'md:contents'} data-type={"card_wrapper"}>
                 <div data-content={"card"} data-type={'card_about_text'} className={styles.card}>
                     <div data-content={"card_title"} className={'flex items-center gap-3'}>
                         <Text size={"24px"} fw={"600"} className={'mr-3 leading-none inline semibold flex-0 !text-gray-400'}>0{index + 1}</Text>

@@ -4,6 +4,7 @@ import {pagePage} from "@/utils/gql/pageTools";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
 import {Title} from "@mantine/core";
 import styles from "./styles.module.css";
+import {notFound} from "next/navigation";
 
 export default async function Page({params}: { params: Promise<{ url: string }> }) {
     const {url} = await params;
@@ -12,7 +13,7 @@ export default async function Page({params}: { params: Promise<{ url: string }> 
   });
     console.log(pages, 'pages')
   const page = pages[0];
-
+    if (!page) return  notFound()
   return (
       <>
           <section className={styles.section} data-content={`section-page`}>
@@ -20,7 +21,7 @@ export default async function Page({params}: { params: Promise<{ url: string }> 
                   <BlockRendererClient content={page.short_dedcription}/>
               </div> : null}
               <div data-content={"section_title"}>
-                  <Title order={2} size={68}>
+                  <Title order={2}>
                       {page.title}
                   </Title>
               </div>

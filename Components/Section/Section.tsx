@@ -10,6 +10,7 @@ import Link from "next/link";
 import Events from "@/Components/Events/Events";
 import AboutCards from "@/Components/AboutCards/AboutCards";
 import Gallery from "@/Components/Gallery/Gallery";
+import {ImageCustoms} from "@/Components/ImageCustom";
 
 export type SectonProps = {
     documentId?: string;
@@ -65,7 +66,7 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     </Title>
                 </div>
                 <div data-content={'section_gallery'}>
-                    {gallery && gallery.map((card:any) => <Image key={card.documentId}  src={card.url} width={card.width} height={card.height} alt={''}/>)}
+                    {gallery && gallery.map((card:any) => <ImageCustoms key={card.documentId}  src={card.url} width={card.width} height={card.height} />)}
                 </div>
             </section>
 

@@ -5,6 +5,7 @@ import {useInterval} from "@mantine/hooks";
 import {useState, useEffect} from 'react';
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
 import Image from "next/image";
+import {ImageCustoms} from "@/Components/ImageCustom";
 
 const ScreenCard = ({items}: { items: Record<string, unknown | any | undefined>[] }) => {
     const maxSeconds = 10;
@@ -29,8 +30,9 @@ const ScreenCard = ({items}: { items: Record<string, unknown | any | undefined>[
     return (<div className={styles.screen_cards + " animate-scaley"} style={{
             minHeight: items[itemIndex].image[0].height + 32 + 'px'
         }}>
-            <Image fill={true} className={styles.bgimg} style={{maxWidth: 'none'}} alt={''}
+            <ImageCustoms fill={true} className={styles.bgimg} style={{maxWidth: 'none'}}
                    src={`${items[itemIndex].image[0].url}`}
+
                 // width={items[itemIndex].image[0].width}
                 // height={items[itemIndex].image[0].height}
             />

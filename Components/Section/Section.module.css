@@ -99,8 +99,13 @@
 
     }
     &[data-content="section-screen"] {
-        padding-top: 0;
+        padding: 0;
         display: block;
+        @media screen and (max-width: 64rem){
+
+            border-radius: 2rem;
+            overflow: hidden;
+        }
     }
     &[data-content="section-catalog"] {
         grid-row-gap: 1.5rem;
@@ -108,7 +113,7 @@
 
         [data-content="section_title"] {
             h2 {
-                margin-bottom: 3.75rem;
+
             }
         }
         [data-content="section_cards"] {
@@ -225,20 +230,23 @@
         [data-content="section_short_description"] {
 
             grid-column: 1/-1;
-            font-size: var(--mantine-font-size-lg);
-            padding-right: 2rem;
+
+            @media screen and (max-width: 48em) {
+                margin-bottom: 2rem;
+            }
             @media screen and (min-width: 48em) {
 
             }
             @media screen and  (min-width: 74em) {
                 grid-column: 1/5;
                 margin: 1rem 1rem 1rem 0;
+                padding-right: 2rem;
             }
         }
         [data-content="section_description"] {
             h2 {
                 margin: 0 0 2rem;
-                font-size: 3rem;
+
                 strong {
                     font-weight: 800;
                     background: linear-gradient(0deg, var(--mantine-primary-color-7) 0%, var(--color-blue-900) 100%);
@@ -252,6 +260,14 @@
                 grid-column: 5/-1;
                 animation: var(--animate-scaley-back);
 
+            }
+        }
+        @media screen and (max-width: 64rem){
+            [data-content="section_description"] {
+                order: -1;
+                h2 {
+                    margin: 0;
+                }
             }
         }
     }
@@ -329,6 +345,17 @@
                 grid-column: 5/-1;
 
             }
+        }
+    }
+    @media screen  and (max-width: 48em){
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+        [data-content="section_content"] {
+            order: 5;
+        }
+        [data-content="section_title"] {
+            order: -1;
         }
     }
 }
