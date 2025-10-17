@@ -19,9 +19,9 @@ export default async function Page({params}: { params: Promise<{ url: string }> 
           <section className={styles.section} data-content={`section-page`}>
               <div data-content={"section_title"}>
                   <Breadcrumbs/>
-                  <Title order={2} size={68}>
+                  <h2>
                       {page.title}
-                  </Title>
+                  </h2>
               </div>
               {page?.short_dedcription && page?.short_dedcription[0].children[0].text !== ""  ? <div data-content={"section_short_description"}>
                   <BlockRendererClient content={page.short_dedcription}/>
