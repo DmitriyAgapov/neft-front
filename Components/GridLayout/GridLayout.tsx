@@ -38,7 +38,7 @@ const GridLayout = async ({children}: React.ReactNode & any) => {
                         <div className={'md:col-span-3  col-span-full'}>
                             <Title order={5} c={"dimmed"} mb={8} className={"leading-[1.25rem] !mb-2"}>Продукция</Title>
                             <ul style={{listStyle: "none", paddingLeft: 0}}>
-                                {menu.subitems?.map((el: any) => <li key={el.href}><Link className={'text-white hover:text-gray-400 text-sm my-2'}  href={el.href} >{el.title}</Link></li>)}
+                                {menu.subitems?.map((el: any) => <li key={el.href}><Link className={'text-white hover:text-gray-400 text-sm my-2'}  href={'/product/' + el.href} >{el.title}</Link></li>)}
                             </ul>
                         </div>
                         <div className={'md:col-span-2 col-span-full'}>
