@@ -147,10 +147,13 @@
     display: grid;
     gap: 0 var(--gap);
     grid-auto-rows: min-content;
-    @media screen and (max-width: 64em) {
-        gap: var(--gap);
-    }
+
     & > * {
         grid-column: 1/-1;
+    }
+}
+@media screen and (max-width: 64em) {
+    .main {
+        gap: var(--gap);
     }
 }
