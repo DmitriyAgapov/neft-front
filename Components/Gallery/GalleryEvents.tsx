@@ -8,7 +8,7 @@ import CardEvent, {CardEventProps} from "@/Components/Cards/CardEvent";
 const GalleryEvents = ({cards}: {cards: CardEventProps[]}) => {
     return <Carousel
         withIndicators
-        height={300}
+        height={"100%"}
         emblaOptions={{
             loop: true,
             dragFree: false,
@@ -20,7 +20,7 @@ const GalleryEvents = ({cards}: {cards: CardEventProps[]}) => {
             indicators: styles.indicators,
             indicator: styles.indicator
         }}
-        slideSize={{ base: 300 }}
+        slideSize={{ base: '100%', sm: '50%', md: '25%' }}
     >
         {cards.map((img) => <Carousel.Slide key={img.url}>
             <CardEvent {...img}/>

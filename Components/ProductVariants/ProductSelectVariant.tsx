@@ -11,9 +11,9 @@ const ProductSelectVariant = () => {
     return <div data-content={"section_select__variant"}>
         {variants.map((el) => {
             return <div key={el.slug}>
-                <Title order={4} size="sm" fw={500} mb={3}>
+                <h4>
                     {el.title}
-                </Title>
+                </h4>
 
                 <SegmentedControl
                     value={filters[el.slug] as string ?? ""}

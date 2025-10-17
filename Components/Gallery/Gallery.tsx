@@ -5,11 +5,11 @@ import {Carousel} from "@mantine/carousel";
 import {ImageCustoms} from "@/Components/ImageCustom";
 import styles from "./Gallery.module.css";
 
-const Gallery = ({images}: {images: {
+const Gallery = ({images, ...props}: {images: {
     url: string,
     width: number,
     height: number,
-    }[]}) => {
+    }[]} & Record<string, unknown>) => {
     return <Carousel
         withIndicators
         height={300}
@@ -18,13 +18,16 @@ const Gallery = ({images}: {images: {
             dragFree: false,
             align: 'start'
         }}
+        slideSize={{ base: 300 }}
         slideGap="md"
+        {...props}
         classNames={{
             root: styles.gallery,
             indicators: styles.indicators,
-            indicator: styles.indicator
+            indicator: styles.indicator,
+            viewport: "overflow-x-visible"
         }}
-        slideSize={{ base: 300 }}
+
     >
         {images.map((img) => <Carousel.Slide key={img.url}><div  className={styles.card}><ImageCustoms src={img.url} height={img.height} width={img.width}/></div></Carousel.Slide>)}
     </Carousel>

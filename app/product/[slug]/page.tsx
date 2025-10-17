@@ -29,10 +29,10 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                 <section className={styles.section} data-content={`section-${type}`}>
                     <div className={'col-1 col-span-4 self-start'}>
                         <div data-content={"section_title relative"} className={"mb-8"}>
-                            <Title order={1} size={"h2"}>
+                            <h2 className={".h2"}>
                                 {title.split(" ")[0]}
                                 <span> {title.split(" ").slice(1, -1).join(" ")}</span>
-                            </Title>
+                            </h2>
                         </div>
 
                         <div data-content={"section_description"} className={'mt-4'}>
@@ -84,7 +84,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                         </div>
 
 
-                        <div data-content={'section_link'} className={'max-w-[20rem]'}>
+                        <div data-content={'section_link'} className={'md:max-w-[20rem]'}>
                             <Button fullWidth variant={"primary"} href={'/form'} size={"xl"} component={"a"}>Оставить
                                 заявку</Button>
                         </div>
@@ -127,7 +127,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                         </div>
 
 
-                        <div data-content={'section_link'} className={'max-w-[20rem]'}>
+                        <div data-content={'section_link'} className={'md:max-w-[20rem]'}>
                             <Button fullWidth variant={"primary"} href={'/form'} size={"xl"} component={"a"}>Оставить
                                 заявку</Button>
                         </div>

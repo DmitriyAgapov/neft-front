@@ -2,7 +2,13 @@
     /*display: contents;*/
     grid-column: 5/-1;
     grid-row: 1/4;
-    padding: 2rem;
+    @media screen and (max-width: 64rem) {
+        grid-row: 2/3;
+    }
+    @media screen and (min-width: 64rem) {
+        padding: 2rem;
+    }
+
     height: 100%;
     :where([data-mantine-color-scheme='light']) {
         --separator-color: transparent;
@@ -30,15 +36,21 @@
         grid-row: 1/2;
         padding: 0;
     }
+
 }
 .wrapper {
     position: sticky;
     top: 0;
     & [data-content="section_image"] {
-        padding: 0 4rem 4rem;
+        @media screen and (min-width: 64rem) {
+            padding: 0 4rem 4rem;
+        }
+
     }
     &[data-content="wrapper-controls"] {
         position: relative;
-        margin-top: -4rem;
+        @media screen and (min-width: 64rem) {
+            margin-top: -4rem;
+        }
     }
 }

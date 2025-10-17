@@ -7,7 +7,7 @@ const AboutCards = ({cards}: Record<string, any>) => {
             return <div key={card.id} className={'md:contents'} data-type={"card_wrapper"}>
                 <div data-content={"card"} data-type={'card_about_text'} className={styles.card}>
                     <div data-content={"card_title"} className={'flex items-center gap-3'}>
-                        <Text size={"24px"} fw={"600"} className={'mr-3 leading-none inline semibold flex-0 !text-gray-400'}>0{index + 1}</Text>
+                        <Text fw={"600"} className={'mr-3 !mt-0.5 md:!text-2xl  !text-xl  inline semibold flex-0 !text-gray-400'}>0{index + 1}</Text>
                         <Title order={3}>
 
                             {card.title}

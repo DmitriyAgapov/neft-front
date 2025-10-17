@@ -36,7 +36,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                 </div>
 
 
-                <div data-content={'section_link'} className={'max-w-[20rem]'}>
+                <div data-content={'section_link'} className={'md:max-w-[20rem]'}>
                     <Button fullWidth variant={"primary"} href={'/form'} size={"xl"} component={"a"}>Оставить
                         заявку</Button>
                 </div>

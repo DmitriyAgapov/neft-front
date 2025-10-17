@@ -19,10 +19,10 @@ export interface CardEventProps {
 const CardEvent = (props: CardEventProps) => {
     return <div key={props.documentId} className={styles.root + ' card_event rounded-xl p-8 bg-white'}>
         <div data-content={"card_title"}>
-            <Text  c={"white"} size={'xs'} className={"mb-3"}>{props.create_date}</Text>
-            <Title order={5} c={"white"}>
+            <Text  c={"white"} component={"span"} size={'sm'} className={"!mb-0"}>{props.create_date}</Text>
+            <h3 style={{color: "white", marginTop: 4, lineHeight: 1.25}}>
                 {props.title}
-            </Title>
+            </h3>
         </div>
         <div data-content={"card_image"}>
             <ImageCustoms src={props.image.url} height={props.image.height} width={props.image.width}/>

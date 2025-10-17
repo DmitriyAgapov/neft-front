@@ -63,7 +63,10 @@
         [data-content="section_gallery"] {
             margin-top: 3rem;
             margin-bottom: 4rem;
-            margin-right: calc(0px - (100vw - 1280px) / 2);
+            @media screen and (min-width: 64em) {
+                margin-right: calc(0px - (100vw - 1280px) / 2);
+            }
+
         }
     }
 }

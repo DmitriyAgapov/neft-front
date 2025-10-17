@@ -19,7 +19,8 @@ function TabsProduct({data : _data}: {data: any}) {
     return (
         <Tabs variant="none" value={value} onChange={setValue} classNames={{
             root: 'col-span-full',
-            panel: ' bg-gray-50 p-8 rounded-2xl'
+            panel: ' bg-gray-50 p-8 rounded-2xl',
+            list: 'max-[64em]:!pl-0 max-[64em]:!ml-0  max-[64em]:!mr-0 !flex-nowrap overflow-x-auto'
         }}>
             <Tabs.List ref={setRootRef} className={classes.list}>
                 <Tabs.Tab value="description" ref={setControlRef('1')} className={classes.tab}>

@@ -4,7 +4,7 @@
     align-self: start;
     height: 3rem;
     @media screen and (min-width: 64em){
-        grid-column: span 3;
+        grid-column: span 2;
         height: 5rem;
     }
     display: inline-flex;

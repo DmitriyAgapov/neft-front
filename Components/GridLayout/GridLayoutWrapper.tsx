@@ -18,7 +18,7 @@ const GridLayoutWrapper = ({data, children}:{data: any, children: React.ReactNod
         }}>
             <AppShellHeader className={styles.header}  data-open={opened}  >
                 <div data-content={"wrapper"}>
-                    <div className={"border-b col-span-full border-gray-300 lg:contents flex justify-between items-center h-16"}>
+                    <div className={`${opened && "max-lg:border-b"} col-span-full border-gray-300 lg:contents flex justify-between items-center h-16`}>
                     <Logo img={data.konfiguracziyaSajta.logo}/>
 
                     <Burger
@@ -31,7 +31,7 @@ const GridLayoutWrapper = ({data, children}:{data: any, children: React.ReactNod
                     </div>
                     <MenuHeader onClose={toggle}/>
                     <div className={'col-span-2 font-semibold'} data-content={"links"}>
-                        <ul>
+                        <ul className={'pl-0'}>
                             {<li className={'grid my-2 gap-2 justify-center'}>
                                 <a href={`tel:${data.konfiguracziyaSajta.Phones[0].number}`}
                                    className={'text-lg font-semibold text-black'}>

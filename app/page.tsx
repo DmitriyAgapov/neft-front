@@ -7,9 +7,5 @@ export default async function Home() {
           "url": "index"
       });
     const page = pages[0];
-  return (
-      <div>
-          {page.sections.map((section:SectonProps)  => <Section key={section.documentId} {...section}/>)}
-      </div>
-  );
+  return page.sections.map((section:SectonProps)  => <Section key={section.documentId} {...section}/>);
 }

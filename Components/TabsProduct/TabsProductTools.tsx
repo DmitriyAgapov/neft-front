@@ -23,7 +23,8 @@ function TabsProductTools({data : _data}: {data: any}) {
     return (
         <Tabs variant="none" value={value} onChange={setValue} classNames={{
             root: 'col-span-full',
-            panel: ' bg-gray-50 p-8 rounded-2xl'
+            panel: ' bg-gray-50 lg:p-8 p-4 rounded-2xl',
+            list: 'max-[64em]:!pl-0 max-[64em]:!ml-0  max-[64em]:!mr-0 !flex-nowrap overflow-x-auto'
         }}>
             <Tabs.List ref={setRootRef} className={classes.list}>
                 {_data.map((el:any, index:number) =>  <Tabs.Tab  key={el.category} value={el.category} ref={setControlRef(index.toString())} className={classes.tab}>
@@ -39,18 +40,18 @@ function TabsProductTools({data : _data}: {data: any}) {
             </Tabs.List>
             {_data.map((el:any, index:number) =>    <Tabs.Panel value={el.category} key={el.category+"_panel"} className={'grid gap-4'}>
                 {el.product_hydraulics && el.product_hydraulics.length ? el.product_hydraulics.map((item:any) =>
-                    <div key={item.hydraulic_slug} data-type={'card_product_hydraulic'} className={'grid grid-cols-[8rem_1fr] gap-4 p-6 bg-white rounded-xl'}>
+                    <div key={item.hydraulic_slug} data-type={'card_product_hydraulic'} className={'md:grid grid-cols-[8rem_1fr] gap-4 p-6 bg-white rounded-xl'}>
                         <div className={''}>
                             <ImageCustoms src={item.image.url} width={item.image.width} height={item.image.height} />
                         </div>
-                        <div className={'flex flex-col gap-4'}>
-                            <Title order={5} className={"!text-[var(--mantine-color-blue-light-color)]"}>{item.title}</Title>
+                        <div className={'flex flex-col gap-4 mt-4 md:mt-0'}>
+                            <Title order={4} className={"!text-[var(--mantine-color-blue-light-color)]"}>{item.title}</Title>
                             <BlockRendererClient
                                 content={item.short_dedcription}
                             />
-                            <div className={'flex gap-4 mt-5'}>
-                                <Button  variant={"primary"} href={`/form`} size={"sm"} component={"a"} >Оставить заявку</Button>
-                                <Button  variant={"icon"} href={pathname + `/${item.hydraulic_slug}`} size={"sm"} component={"a"} rightSection={<LinkForm className={'w-4 h-4'}/>}>Подробнее</Button>
+                            <div className={'md:flex gap-4 mt-5'}>
+                                <Button className={"max-md:!block"} variant={"primary"} href={`/form`} mb={16} size={"sm"} component={"a"} >Оставить заявку</Button>
+                                <Button className={"max-md:!block"} variant={"icon"} href={pathname + `/${item.hydraulic_slug}`} size={"sm"} component={"a"} rightSection={<LinkForm className={'w-4 h-4'}/>}>Подробнее</Button>
                             </div>
                         </div>
                     </div>)

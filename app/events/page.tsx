@@ -12,9 +12,9 @@ export default async function Home() {
       <>
       <section className={styles.section} data-content={`section-page`}>
           <div data-content={"section_title"}>
-              <Title order={1} >
+              <h1>
                   События
-              </Title>
+              </h1>
           </div>
       </section>
       <section className={styles.section} data-content={`section-events_cards`}>

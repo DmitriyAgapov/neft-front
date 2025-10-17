@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     },
     devIndicators: false,
     experimental: {
-        globalNotFound: true,
+        // globalNotFound: true,
         typedEnv: true,
         optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
     },

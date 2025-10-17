@@ -47,6 +47,22 @@
             padding-bottom: 0;
         }
     }
+    @media screen and (max-width: 64rem) {
+
+        gap: 1rem;
+        padding: 1rem 0;
+        & > * {
+            grid-column: 1/-1 !important;
+        }
+        [data-content="section_select__variant"]  {
+            padding: 2rem 0 0 ;
+            transform: translateY(0);
+        }
+        [data-type="product-controls"], [data-type="product-hydraulic-product"] {
+            grid-row: 2/3 !important;
+        }
+
+    }
 
 }
 .ProductSelector {

@@ -1,11 +1,13 @@
 import styles from "./GridLayout.module.css";
 import React from "react";
-import { AppShellFooter,  AppShellMain,Text, Title} from "@mantine/core";
+import {AppShellFooter, AppShellMain, NavLink, Text, Title} from "@mantine/core";
 import {queryWrapper} from "@/utils/queryWrapper";
 import {config} from "@/utils/gql/config";
 import Logo from "@/Components/Logo/Logo";
 import ImageCustoms from "../ImageCustom/ImageCustoms/ImageCustoms";
 import GridLayoutWrapper from "@/Components/GridLayout/GridLayoutWrapper";
+import {dataMenu} from "@/utils/constants";
+import Link from "next/link";
 
 
 const AddressItem = (el: any) => <li className={'grid !my-2'}>
@@ -19,6 +21,7 @@ const EmailItem = (el: any) => <li className={'grid !my-2'}>
 
 const GridLayout = async ({children}: React.ReactNode & any) => {
     const data = await queryWrapper(config);
+    const [menu, ...rest] = dataMenu;
     return (
         <GridLayoutWrapper data={data}>
             <AppShellMain className={styles.main}>
@@ -27,30 +30,27 @@ const GridLayout = async ({children}: React.ReactNode & any) => {
             <AppShellFooter className={styles.footer}>
                 <div data-content={"wrapper"}>
                     <div className={"contents"}>
-                        <div className={'col-span-5'}>
-                            <Logo inversed img={data.konfiguracziyaSajta.logo}/>
-                            <Text size={"sm"} c={"dimmed"} mt={8}
-                                  className={'col-span-3 mt-2'}>{data.konfiguracziyaSajta.slogan}</Text>
+                        <div className={'xl:col-span-5 min-[74em]:col-span-4 col-span-full'}>
+                            <Logo inversed={true} img={data.konfiguracziyaSajta.logo}/>
+                            <Text size={"sm"} c={"dimmed"}
+                                  className={'col-span-3'}>{data.konfiguracziyaSajta.slogan}</Text>
                         </div>
-                        <div className={'col-span-3'}>
-                            <Title order={5} c={"dimmed"} mb={8} className={"leading-[1.25rem] !mb-4"}>Продукция</Title>
-                            <ul>
-                                <li className={'text-white text-sm my-2'}>Перемешивающие устройства (мешалки)</li>
-                                <li className={'text-white text-sm my-2'}>Перемешивающие устройства (мешалки)</li>
-                                <li className={'text-white text-sm my-2'}>Перемешивающие устройства (мешалки)</li>
-                                <li className={'text-white text-sm my-2'}>Перемешивающие устройства (мешалки)</li>
+                        <div className={'md:col-span-3  col-span-full'}>
+                            <Title order={5} c={"dimmed"} mb={8} className={"leading-[1.25rem] !mb-2"}>Продукция</Title>
+                            <ul style={{listStyle: "none", paddingLeft: 0}}>
+                                {menu.subitems?.map((el: any) => <li key={el.href}><Link className={'text-white hover:text-gray-400 text-sm my-2'}  href={el.href} >{el.title}</Link></li>)}
                             </ul>
                         </div>
-                        <div className={'col-span-2'}>
-                            <Title order={5} c={"dimmed"} mb={8} className={"leading-[1.25rem] !mb-4"}>Компания</Title>
-                            <ul>
-                                <li className={'text-white text-sm my-2'}>О компании</li>
-                                <li className={'text-white text-sm my-2'}>Документы</li>
-                                <li className={'text-white text-sm my-2'}>События</li>
-                            </ul>
+                        <div className={'md:col-span-2 col-span-full'}>
+                            <Title order={5} c={"dimmed"} mb={8} className={"leading-[1.25rem] !mb-2"}>Компания</Title>
+
+                                <ul style={{listStyle: "none", paddingLeft: 0}}>
+                                    {rest.slice(0, 3)?.map((el: any) => <li key={el.href}><Link className={'text-white hover:text-gray-400 text-sm my-2'}  href={el.href} >{el.title}</Link></li>)}
+                                </ul>
+
                         </div>
-                        <div className={'col-span-2 col-start-[-3]'}>
-                            <Title order={5} c={"dimmed"} className={"!leading-[1.25rem] !mb-4"}>Контакты</Title>
+                        <div className={'md:col-span-2 xl:col-start-[-3] col-span-full '}>
+                            <Title order={5} c={"dimmed"} className={"!leading-[1.25rem] !mb-2"}>Контакты</Title>
                             <ul className={'!pl-0'}>
                                 {data.konfiguracziyaSajta.Phones.map((el: any) => <AddressItem key={el.id}  {...el}/>)}
                                 {data.konfiguracziyaSajta.emails.map((el: any) => <EmailItem key={el.id}  {...el}/>)}

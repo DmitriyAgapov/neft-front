@@ -115,6 +115,7 @@ body {
 @layer base {
 
   h1, h2, h3, h4, h5, h6 {
+      font-family: var(--mantine-font-family-headings), serif;
     color: black;
       margin: 1rem 0;
       font-weight: 800;
@@ -144,7 +145,7 @@ body {
             --content-grid: repeat(8, 1fr);
         }
 
-        @media screen and (min-width: 72em) {
+        @media screen and (min-width: 74em) {
             --margin: minmax(1.5rem, 1fr);
             --content-grid: repeat(12, minmax(74px, 78px));
         }

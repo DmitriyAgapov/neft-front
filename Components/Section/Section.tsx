@@ -33,7 +33,7 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     <BlockRendererClient content={description}/>
                 </div>
                 <div data-content={"section_title"}>
-                    <Title order={1}>
+                    <Title unstyled order={1}>
                         {title.split(" ").slice(0, 3).join(" ")}
                         <span> {title.split(" ").slice(3).join(" ")}</span>
                     </Title>
@@ -46,7 +46,7 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     <BlockRendererClient content={description}/>
                 </div>
                 <div data-content={"section_title"}>
-                    <Title order={2}>
+                    <Title unstyled order={2}>
                         {title}
                     </Title>
                 </div>
@@ -61,7 +61,7 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     <BlockRendererClient content={description}/>
                 </div>
                 <div data-content={"section_title"}>
-                    <Title order={2}>
+                    <Title unstyled order={2}>
                         {title}
                     </Title>
                 </div>
@@ -76,7 +76,7 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     <BlockRendererClient content={description}/>
                 </div>
                 <div data-content={"section_title"}>
-                    <Title order={2} size={68}>
+                    <Title unstyled order={2} size={68}>
                         {title.split(" ")[0]}
                         <span> {title.split(" ")[1]}</span>
                     </Title>
@@ -107,7 +107,7 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     <BlockRendererClient content={short_dedcription}/>
                 </div>
                 <div data-content={"section_title"}>
-                    <Title order={2} size={68}>
+                    <Title unstyled order={2} size={68}>
                         {title.split(" ")[0]}
                         <span> {title.split(" ")[1]}</span>
                     </Title>
@@ -119,7 +119,7 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     {cards ? cards.map((card: any) =>
                         <div key={card.id}>
                             <div data-content={"card_title"}>
-                                <Title order={4}>
+                                <Title unstyled order={4}>
                                     {card.title}
                                 </Title>
                             </div>
@@ -132,32 +132,31 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
 
         case 'page_event':
             return <section className={styles.section} data-content={`section-page`}>
-                <div data-content={"section_description"}>
+                {short_dedcription ? <div data-content={"section_description"}>
                     <BlockRendererClient content={short_dedcription}/>
-                </div>
+                </div> : null}
                 <div data-content={"section_title"} className={"mb-8"}>
-                    <Title order={2} size={68}>
+                    <Title unstyled order={2}>
                         {title.split(" ")[0]}
                         <span> {title.split(" ")[1]}</span>
                     </Title>
                     {link ? <div data-content={"section_link"} className={"mt-8"}>
-                        <Button size={"lg"} variant={"gray"} component={Link} href={link?.url} rightSection={<LinkForm  className={"w-6 h-6"} />}>{link?.title}</Button>
+                        <Button size={"lg"} variant={"gray"} className={'max-md:!w-full'} component={Link} href={link?.url} rightSection={<LinkForm  className={"w-6 h-6"} />}>{link?.title}</Button>
                     </div> : null}
                 </div>
-                <div data-content={"section_content"}>
-                    {cards ? cards.map((card: any) =>
+                {cards && cards.length   ? <div data-content={"section_content"}>
+                        {cards.map((card: any) =>
                         <div key={card.id}>
                             <div data-content={"card_title"}>
-                                <Title order={4}>
+                                <Title unstyled order={4}>
                                     {card.title}
                                 </Title>
                             </div>
-                            <div data-content={"card_content"}>
-                            </div>
-                        </div>
-                    ) : null}
 
-                </div>
+                        </div>
+                    )}
+
+                </div> : null}
                 <Events/>
             </section>
         case 'page_no_title':
@@ -166,7 +165,7 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     {cards ? cards.map((card: any) =>
                         <div key={card.id} data-content={"card"} data-type={'card_contact'}>
                             <div data-content={"card_title"}>
-                                <Title order={3}>
+                                <Title unstyled order={3}>
                                     {card.title}
                                 </Title>
                             </div>
@@ -190,10 +189,9 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                 </div>
             </section>
         case 'our_manufacture':
-            console.log(cards)
             return <section className={styles.section}  data-content={`section-${type}`}>
                 <div data-content={"section_title"} className={"mb-8"}>
-                    <Title order={2} >
+                    <Title unstyled order={2} >
                         {title.split(" ")[0]}
                         <span> {title.split(" ")[1]}</span>
                     </Title>
@@ -204,12 +202,12 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                 {cards ? <div data-content="section_gallery">
                     {cards.map((card:any) => <div key={card.id}>
                         <div data-content={"card_title"} className={"mb-8"}>
-                            <Title order={3} >
+                            <Title unstyled order={3} >
                                 {card.title}
                             </Title>
                         </div>
                         <div data-content="section_gallery">
-                            <Gallery images={card.gallery}/>
+                            <Gallery images={card.gallery} height={"100%"} slideSize={{base: "100%", md: "50%", lg: "33.33%", xl: "25%"}}/>
                         </div>
                     </div>)}
                 </div> : null}

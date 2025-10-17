@@ -7,7 +7,7 @@ module.exports = {
                 'mantine-breakpoint-sm': '48em',
                 'mantine-breakpoint-md': '64em',
                 'mantine-breakpoint-lg': '74em',
-                'mantine-breakpoint-xl': '74em',
+                'mantine-breakpoint-xl': '90em',
             },
         },
     },

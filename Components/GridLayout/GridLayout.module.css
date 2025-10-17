@@ -7,10 +7,14 @@
     & > * {
         grid-column: 2/-2;
     }
-    &:has(header[data-open="true"]) {
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
+    overflow: hidden;
+    @media screen and (max-width: 64em) {
+        gap: var(--gap);
+        &:has(header[data-open="true"]) {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+        }
     }
 }
 
@@ -41,66 +45,80 @@
 
     }
     border-bottom: 1px solid var(--border-default);
-    align-items: start;
-    align-content: start;
+
     overflow: hidden;
 
 
-    [data-content="wrapper"] {
+
+    @media screen and (max-width: 64em) {
         align-items: start;
         align-content: start;
-    }
-    &[data-open="false"] {
-        [data-content="menu"], [data-content="links"]  {
-            max-height: 0;
-
-            display: none;
-        }
-    }
-    &[data-open="true"] {
-        overflow: visible;
         [data-content="wrapper"] {
-            height: 100dvh;
+            align-items: start;
+            align-content: start;
         }
-        [data-content="menu"] {
-            max-height: 100%;
-            display: grid;
-            justify-content: stretch;
-            & > * {
-                border-radius: 0;
-                justify-self: stretch;
-                display: block;
-                color: var(--mantine-color-text);
-                border-bottom: 1px solid var(--color-gray-300);
-            }
-            & * {
-                padding-left: 0;
-                margin-left: 0;
-                text-align: left;
-                justify-content: start;
-            }
-            [data-variant="transparent"] {
-                & > span {
-                    display: flex;
-                    justify-content: space-between;
-                }
-                & + [data-menu-dropdown="true"] {
-                    position: relative;
-                }
+        &[data-open="false"] {
+            [data-content="menu"], [data-content="links"] {
+                max-height: 0;
+
+                display: none;
             }
         }
-        [data-content="links"] {
-            grid-column: 1/-1;
-            margin-top: 2rem;
-            ul {
-               padding-left: 0;
+        &[data-open="true"] {
+            overflow: visible;
+
+            [data-content="wrapper"] {
+                height: 100dvh;
             }
-            a {
-                width: 100%;
-                text-align: center;
-            }
-            li {
+
+            [data-content="menu"] {
+                max-height: 100%;
+                display: grid;
                 justify-content: stretch;
+
+                & > * {
+                    border-radius: 0;
+                    justify-self: stretch;
+                    display: block;
+                    color: var(--mantine-color-text);
+                    border-bottom: 1px solid var(--color-gray-300);
+                }
+
+                & * {
+                    padding-left: 0;
+                    margin-left: 0;
+                    text-align: left;
+                    justify-content: start;
+                }
+
+                [data-variant="transparent"] {
+                    & > span {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    & + [data-menu-dropdown="true"] {
+                        position: relative;
+                    }
+                }
+            }
+
+            [data-content="links"] {
+                grid-column: 1/-1;
+                margin-top: 2rem;
+
+                ul {
+                    padding-left: 0;
+                }
+
+                a {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                li {
+                    justify-content: stretch;
+                }
             }
         }
     }
@@ -117,11 +135,20 @@
         grid-template-columns: var(--columns);
         gap: 0 var(--gap);
     }
+    @media screen and (max-width: 72rem) {
+        [data-content="wrapper"] {
+            gap: 1.5rem;
+
+        }
+    }
 }
 .main {
     grid-template-columns: subgrid;
     display: grid;
     grid-auto-rows: min-content;
+    @media screen and (max-width: 64em) {
+        gap: var(--gap);
+    }
     & > * {
         grid-column: 1/-1;
     }

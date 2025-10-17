@@ -23,17 +23,17 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             <div className={'col-1 col-span-5 self-start'} data-type={`section-${type}-intro`}>
                 <div data-content={"section_title relative"} className={"mb-8"}>
                     <Breadcrumbs/>
-                    <Title order={1} size={"h2"}>
+                    <h1>
                         {title}
 
-                    </Title>
+                    </h1>
                     <div data-content={"section_description"} className={'mt-8 max-w-[30rem]'}>
                         <BlockRendererClient content={short_dedcription}/>
                     </div>
                 </div>
 
 
-                <div data-content={'section_link'} className={'max-w-[20rem]'}>
+                <div data-content={'section_link'} className={'md:max-w-[20rem]'}>
                     <Button fullWidth variant={"primary"} href={'/form'} size={"xl"} component={"a"}>Оставить
                         заявку</Button>
                 </div>
@@ -50,13 +50,13 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             {/*<TabsProductControls data={products[0]}/>*/}
 
         </section>
-        <section className={styles.section + " bg-gray-100 !p-8 rounded-2xl"} data-content={`section-komplekt`}>
+        <section className={styles.section + " bg-gray-100 md:!p-8 !p-4 rounded-2xl"} data-content={`section-komplekt`}>
             <div data-content={"section_title relative"}>
-                <Title order={3} size={"h3"}>Что входит в комплект/сборку?</Title>
+                <h3>Что входит в комплект/сборку?</h3>
             </div>
-            <div data-content={"section_cards"} className={'mt-4  grid grid-cols-4 gap-4'}>
+            <div data-content={"section_cards"} className={'mt-4  md:grid flex lg:grid-cols-4 md:grid-cols-2 gap-4 max-md:overflow-x-scroll max-md:cursor-grab'}>
                 {child_categories ? child_categories.map((item: any) => <div
-                    key={item.category} className={'flex flex-col flex-wrap card_child_category aspect-square bg-white rounded-xl px-6 pt-8 pb-4 relative'}>
+                    key={item.category} className={'flex w-full h-80 flex-col flex-wrap card_child_category aspect-square bg-white rounded-xl px-6 pt-8 pb-4 relative'}>
                     <div className={'card_child_category_title relative z-10'}>
                         <Title order={4} size={"h4"}>{item.title}</Title>
                     </div>
