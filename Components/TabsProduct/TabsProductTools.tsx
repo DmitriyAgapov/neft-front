@@ -20,6 +20,7 @@ function TabsProductTools({data : _data}: {data: any}) {
         controlsRefs[val] = node;
         setControlsRefs(controlsRefs);
     };
+    if (!_data || _data.length === 0) return;
     return (
         <Tabs variant="none" value={value} onChange={setValue} classNames={{
             root: 'col-span-full',
