@@ -21,9 +21,9 @@ export default async function Page({params}: { params: Promise<{ url: string }> 
                   <BlockRendererClient content={page.short_dedcription}/>
               </div> : null}
               <div data-content={"section_title"}>
-                  <Title order={2}>
+                  <h2>
                       {page.title}
-                  </Title>
+                  </h2>
               </div>
           </section>
           {page.sections.map((section:SectonProps)  => <Section key={section.documentId} {...section}/>)}

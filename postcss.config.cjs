@@ -7,10 +7,14 @@ module.exports = {
                 'nesting-rules': true,
                 'css-grid': true,
                 'subgrid': true,
-                'custom-properties': true,
-                'color-mod-function': true
+                'custom-media-queries': true,
+                'media-query-ranges': true
+            },
+            autoprefixer: {
+                grid: true
             }
         },
+        "@tailwindcss/postcss": {},
         'postcss-simple-vars': {
             variables: {
                 'mantine-breakpoint-xs': '22.5em',

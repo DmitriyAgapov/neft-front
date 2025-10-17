@@ -13,9 +13,11 @@ const nextConfig: NextConfig = {
         NEXT_PUBLIC_NEXT_BACK_IMG: 'https://fortunate-victory-1618645512.media.strapiapp.com/',
         NEXT_PUBLIC_NEXT_BACK_IMG_DEV: 'http://127.0.0.1:1337',
     },
+
     devIndicators: false,
     experimental: {
         globalNotFound: true,
+        optimizeCss: true,
         typedEnv: true,
         optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
     },
