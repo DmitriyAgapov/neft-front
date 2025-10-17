@@ -52,8 +52,12 @@
         &:before {
             content: '';
             position: absolute;
-            width: 100vw;
-            margin-left: calc((1280px - 100vw ) / 2);
+            margin-left: -1.25rem;
+            @media screen and (min-width: 74em){
+                width: 100vw;
+                margin-left: calc((1280px - 100vw ) / 2);
+            }
+
             top: 0;
             bottom: 0;
             z-index: -1;
