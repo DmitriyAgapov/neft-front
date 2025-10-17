@@ -1,7 +1,7 @@
 export const queryWrapper = async (query:string, variables?: Record<string, unknown>) => {
     console.log(process.env.NEXT_PUBLIC_API);
     console.log(process.env.NODE_ENV)
-    const response = await fetch(process.env.NEXT_API as string, {
+    const response = await fetch(process.env.NEXT_PUBLIC_NEXT_API as string, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
