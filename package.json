@@ -37,5 +37,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-    "browserslist": [">0.6%", "not dead", "not op_mini all"]
+    "browserslist": [">0.3%", "not dead", "not op_mini all"]
 }
