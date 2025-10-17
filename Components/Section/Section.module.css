@@ -150,8 +150,9 @@
         }
         [data-content="section_cards"] {
             display: grid;
-            grid-template-columns: subgrid;
+            grid-template-columns: var(--content-grid);
             grid-row-gap: 1rem;
+            gap: var(--gap);
         }
 
     }
@@ -182,7 +183,8 @@
        [data-content="section_content"] {
             display: grid;
             grid-template-columns: var(--content-grid);
-            gap: 1rem;
+           gap: var(--gap);
+
            grid-auto-flow: dense;
             @media screen and (max-width: 767px){
                 grid-template-columns: 1fr;

@@ -15,9 +15,17 @@ const nextConfig: NextConfig = {
     },
 
     devIndicators: false,
+    typescript: {
+        ignoreBuildErrors: false,
+    },
+    eslint: {
+        ignoreDuringBuilds: false,
+    },
     experimental: {
         globalNotFound: true,
-        optimizeCss: true,
+        optimizeCss: process.env.NODE_ENV === 'production' ? {
+            critters: true
+        } : false,
         typedEnv: true,
         optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
     },

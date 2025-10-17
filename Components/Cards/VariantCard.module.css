@@ -63,9 +63,10 @@
 }
 .specs_item {
     display: grid;
-    grid-template-columns: subgrid;
+    grid-template-columns: var(--content-grid);
     grid-column: 1/-1;
     padding: .75rem;
+    gap: var(--gap);
     border-bottom: 1px solid var(--color-gray-200);
     &:nth-child(odd) {
         background-color: white;
