@@ -63,7 +63,7 @@
 }
 .specs_item {
     display: grid;
-    grid-template-columns: var(--content-grid);
+    grid-template-columns: 1fr 1fr;
     grid-column: 1/-1;
     padding: .75rem;
     gap: var(--gap);
