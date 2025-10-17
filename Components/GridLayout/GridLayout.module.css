@@ -7,7 +7,7 @@
     & > * {
         grid-column: 2/-2;
     }
-    overflow: hidden;
+    /*overflow: hidden;*/
     @media screen and (max-width: 64em) {
         gap: var(--gap);
         &:has(header[data-open="true"]) {

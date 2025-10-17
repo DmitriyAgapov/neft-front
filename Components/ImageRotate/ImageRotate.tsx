@@ -5,7 +5,7 @@ import React from "react";
 import styles from "./ImageRotate.module.css";
 import {PauseIcon, PlayIcon} from "@/Components/Icons/Icons";
 
-const basePath = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_IMG_PROD + `/hydro/press/` : "http://localhost:3000/hydro/press/";
+const basePath = process.env.NODE_ENV !== "development" ? process.env.NEXT_PUBLIC_IMG_PROD + `/hydro/press/` : "http://localhost:3000/hydro/press/";
 export default function ImageRotate({images}: {images: any[]}) {
     const [isPlaying, setIsPlaying] = React.useState(false);
     const ref = React.useRef(null);
