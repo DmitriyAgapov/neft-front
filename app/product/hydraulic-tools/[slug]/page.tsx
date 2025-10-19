@@ -26,10 +26,10 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             <div className={'col-1 col-span-5 self-start'} data-type={`section-hydraulic-product-intro`}>
                 <div data-content={"section_title relative"} className={"mb-8"}>
                     <Breadcrumbs/>
-                    <Title order={1} size={"h2"}>
+                    <h1>
                         {title}
 
-                    </Title>
+                    </h1>
                     <div data-content={"section_description"} className={'mt-8 max-w-[30rem]'}>
                         <BlockRendererClient content={short_dedcription}/>
                     </div>
@@ -45,8 +45,8 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             <ProductRoot>
                 <div className={styles.ProductSelector} data-type={`product-hydraulic-product`}>
                     <div className={styles.wrapper} data-content={`wrapper-hydraulic-product`}>
-                        {gallery && gallery.length ? <ImageRotate images={gallery}/> :
-                        <ImageCustoms width={image.width} height={image.height} src={image.url}/>}
+                        <ImageRotate slug={slug as string}/>
+
                     </div>
                 </div>
             </ProductRoot>

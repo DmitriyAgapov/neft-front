@@ -7,13 +7,20 @@ const nextConfig: NextConfig = {
         NEXT_BACK_DEV: 'http://localhost:1337',
         NEXT_PUBLIC_NEXT_BACK: 'https://fortunate-victory-1618645512.strapiapp.com',
         NEXT_PUBLIC_NEXT_BACK_DEV: 'http://localhost:1337',
-        NEXT_PUBLIC_IMG_PROD: 'https://neft-front.vercel.app',
+        NEXT_PUBLIC_IMG_PROD: 'https://neft-front.vercel.app/',
         NEXT_PUBLIC_NEXT_API: 'https://fortunate-victory-1618645512.strapiapp.com/graphql',
-        NEXT_PUBLIC_NEXT_API_DEV: 'http://localhost:1337/graphql',
+        NEXT_PUBLIC_NEXT_API_DEV: 'http://127.0.0.1:1337/graphql',
         NEXT_PUBLIC_NEXT_BACK_IMG: 'https://fortunate-victory-1618645512.media.strapiapp.com/',
         NEXT_PUBLIC_NEXT_BACK_IMG_DEV: 'http://127.0.0.1:1337',
     },
-
+    async rewrites() {
+        return [
+            {
+                source: '/',
+                destination: '/index',
+            },
+        ];
+    },
     devIndicators: false,
     typescript: {
         ignoreBuildErrors: false,

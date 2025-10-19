@@ -20,9 +20,9 @@ export default async function PageEvent({params}: { params: Promise<{ url: strin
 
               <div data-content={"section_title"}>
                   <Breadcrumbs/>
-                  <Title order={3}  className={"!my-2"}>
+                  <h3  className={"!my-2"}>
                       {page.title}
-                  </Title>
+                  </h3>
                   <Text><DateFormat date={page.create_date} formatier="DD MMMM YYYY" /></Text>
               </div>
               <div data-content={"section_content"}>

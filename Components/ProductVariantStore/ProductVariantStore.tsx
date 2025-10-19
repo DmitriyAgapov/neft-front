@@ -21,7 +21,7 @@ export const ProductVariantsBlock = observer(() => {
     const filters = store.getParams;
 
     const { data,  isLoading  } = useSWR(
-        [process.env.NEXT_PUBLIC_NEXT_API as string, filters],
+        [process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_NEXT_API_DEV as string : process.env.NEXT_PUBLIC_NEXT_API as string, filters],
         ([url, filters]) => fetcher(url, productsQuery , {filters: {...filters, "type": {
                     "eq": "mixers"
                 }}}

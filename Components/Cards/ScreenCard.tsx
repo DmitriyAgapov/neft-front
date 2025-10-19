@@ -29,9 +29,9 @@ const ScreenCard = ({items}: { items: Record<string, unknown | any | undefined>[
                     <div key={card.id} data-active={itemIndex === index} className={styles.card}>
                         <header>
                             <Text component={"span"} style={{fontWeight: 600}} c={"blue.3"}>0{index + 1}</Text>
-                            <Title c={"white"} order={4} style={{display: "inline-block", marginLeft: '1rem'}}>
+                            <h4 style={{display: "inline-block", marginLeft: '1rem', color: "white"}}>
                                 {card.title}
-                            </Title>
+                            </h4>
                         </header>
                         <div style={{
                             overflow: 'hidden',

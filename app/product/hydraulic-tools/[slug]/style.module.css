@@ -95,7 +95,7 @@
     &[data-type="product-controls"], &[data-type="product-hydraulic-tools"]  , &[data-type="product-hydraulic-product"]  {
         grid-column: 7/-1;
         grid-row: 1/2;
-        padding: 0 5vw;
+        /*padding: 0 5vw;*/
     }
 }
 .wrapper {
@@ -108,4 +108,9 @@
         position: relative;
         margin-top: -4rem;
     }
+}
+.imagefallback {
+    position: absolute;
+    top: 0;
+    right: 0;
 }

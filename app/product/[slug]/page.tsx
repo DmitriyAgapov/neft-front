@@ -14,7 +14,33 @@ import ProductImage from "@/Components/ProductVariants/ProductImage";
 import Section from "@/Components/Section/Section";
 import TabsProductControls from "@/Components/TabsProduct/TabsProductControls";
 import Breadcrumbs from "@/Components/Breadcrumbs/Breadcrumbs";
+import type {Metadata, ResolvingMetadata} from "next";
+import {config} from "@/utils/gql/config";
+import {notFound} from "next/navigation";
 
+type Props = {
+    params: Promise<{ slug: string }>
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+export async function generateMetadata(
+    { params }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const slug = (await params).slug
+
+    const {products} = await queryWrapper(productBySlug, {
+        "filters": {"slug": {"eq": slug}}
+    });
+    const data = await queryWrapper(config);
+
+    const page = products[0];
+    if (!page) return  notFound()
+    return {
+        title: data.konfiguracziyaSajta.website_name + ` - ${page.seo?.metaTitle ?? page.title}` ,
+        description: page.seo?.metaDescription ?? "",
+        keywords: page.seo?.keywords  ?? "",
+    }
+}
 export default async function Page({params}: { params: Promise<{ slug: string }> }) {
     const {slug} = await params;
     const {products} = await queryWrapper(productBySlug, {
@@ -74,10 +100,10 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                     <div className={'col-1 col-span-5 self-start'} data-type={`section-${type}-intro`}>
                         <div data-content={"section_title relative"} className={"mb-8"}>
                             <Breadcrumbs/>
-                            <Title order={1} size={"h2"}>
+                            <h1>
                                 {title}
 
-                            </Title>
+                            </h1>
                             <div data-content={"section_description"} className={'mt-8 max-w-[30rem]'}>
                                 <BlockRendererClient content={short_dedcription}/>
                             </div>
@@ -117,10 +143,10 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                     <div className={'col-1 col-span-5 self-start'} data-type={`section-${type}-intro`}>
                         <div data-content={"section_title relative"} className={"mb-8"}>
                             <Breadcrumbs/>
-                            <Title order={1} size={"h2"}>
+                            <h1>
                                 {title}
 
-                            </Title>
+                            </h1>
                             <div data-content={"section_description"} className={'mt-8 max-w-[30rem]'}>
                                 <BlockRendererClient content={short_dedcription}/>
                             </div>

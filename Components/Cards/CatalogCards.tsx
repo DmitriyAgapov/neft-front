@@ -14,9 +14,9 @@ const CatalogCard = ({props}: {props:CatalogCardProps}) => {
 
     return (<div className={styles.card}>
             <header>
-                <Title  order={3} >
+                <h3 >
                     {props.title}
-                </Title>
+                </h3>
             </header>
             {(props.image && props.image.length) ? (() => {
                 const {documentId, ...prop} = props.image[0];

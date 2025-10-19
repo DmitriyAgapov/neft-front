@@ -58,7 +58,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                 {child_categories ? child_categories.map((item: any) => <div
                     key={item.category} className={'flex w-full h-80 flex-col flex-wrap card_child_category aspect-square bg-white rounded-xl px-6 pt-8 pb-4 relative'}>
                     <div className={'card_child_category_title relative z-10'}>
-                        <Title order={4} size={"h4"}>{item.title}</Title>
+                        <h4 className={'my-0'}>{item.title}</h4>
                     </div>
                     <div className={'card_child_category_image absolute top-4 left-4  bottom-4 right-4 '}>
                         <ImageCustoms width={item.image.width} height={item.image.height} src={item.image.url}/>

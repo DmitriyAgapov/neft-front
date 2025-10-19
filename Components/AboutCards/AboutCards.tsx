@@ -8,10 +8,10 @@ const AboutCards = ({cards}: Record<string, any>) => {
                 <div data-content={"card"} data-type={'card_about_text'} className={styles.card}>
                     <div data-content={"card_title"} className={'flex items-center gap-3'}>
                         <Text fw={"600"} className={'mr-3 !mt-0.5 md:!text-2xl  !text-xl  inline semibold flex-0 !text-gray-400'}>0{index + 1}</Text>
-                        <Title order={3}>
+                        <h3 >
 
                             {card.title}
-                        </Title>
+                        </h3>
                     </div>
                     <div data-content={"card_content"}>
                         <BlockRendererClient content={card.description}/>

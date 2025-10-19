@@ -12,6 +12,11 @@ import AboutCards from "@/Components/AboutCards/AboutCards";
 import Gallery from "@/Components/Gallery/Gallery";
 import {ImageCustoms} from "@/Components/ImageCustom";
 
+export interface Settings {
+    isDescriptionHidden: boolean,
+    isShortDescriptionHidden: boolean,
+    isTitleHidden: boolean
+}
 export type SectonProps = {
     documentId?: string;
     title: string;
@@ -25,7 +30,7 @@ export type SectonProps = {
     cards?: Record<string, unknown | any>[];
     gallery?: Record<string, unknown | any>[];
 }
-const Section = ({title, type, description, short_dedcription, cards, gallery, link}:SectonProps) => {
+const Section = ({title, type, description, short_dedcription, cards, gallery, link, settings}:SectonProps & {settings?: Settings}) => {
     switch (type) {
         case 'before_screen':
             return <section className={styles.section} data-content={`section-${type}`}>
@@ -103,18 +108,18 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
             </section>
         case 'page':
             return <section className={styles.section} data-content={`section-page`}>
-                <div data-content={"section_description"}>
+                {!settings?.isShortDescriptionHidden ? <div data-content={"section_description"}>
                     <BlockRendererClient content={short_dedcription}/>
-                </div>
-                <div data-content={"section_title"}>
-                    <Title unstyled order={2} size={68}>
+                </div>: null}
+                {!settings?.isTitleHidden ? <div data-content={"section_title"}>
+                    <h2>
                         {title.split(" ")[0]}
                         <span> {title.split(" ")[1]}</span>
-                    </Title>
+                    </h2>
                     {link ? <div data-content={"section_link"} className={"mt-8"}>
                         <Button size={"lg"} variant={"gray"} component={Link} href={link?.url} rightSection={<LinkForm  className={"w-6 h-6"} />}>{link?.title}</Button>
                     </div> : null}
-                </div>
+                </div>: null}
                 <div data-content={"section_content"}>
                     {cards ? cards.map((card: any) =>
                         <div key={card.id}>
@@ -136,10 +141,10 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     <BlockRendererClient content={short_dedcription}/>
                 </div> : null}
                 <div data-content={"section_title"} className={"mb-8"}>
-                    <Title unstyled order={2}>
+                    <h2>
                         {title.split(" ")[0]}
                         <span> {title.split(" ")[1]}</span>
-                    </Title>
+                    </h2>
                     {link ? <div data-content={"section_link"} className={"mt-8"}>
                         <Button size={"lg"} variant={"gray"} className={'max-md:!w-full'} component={Link} href={link?.url} rightSection={<LinkForm  className={"w-6 h-6"} />}>{link?.title}</Button>
                     </div> : null}
@@ -165,9 +170,9 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                     {cards ? cards.map((card: any) =>
                         <div key={card.id} data-content={"card"} data-type={'card_contact'}>
                             <div data-content={"card_title"}>
-                                <Title unstyled order={3}>
+                                <h3>
                                     {card.title}
-                                </Title>
+                                </h3>
                             </div>
                             <div data-content={"card_content"}>
                                 <BlockRendererClient content={card.description}/>
@@ -191,10 +196,10 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
         case 'our_manufacture':
             return <section className={styles.section}  data-content={`section-${type}`}>
                 <div data-content={"section_title"} className={"mb-8"}>
-                    <Title unstyled order={2} >
+                    <h2>
                         {title.split(" ")[0]}
                         <span> {title.split(" ")[1]}</span>
-                    </Title>
+                    </h2>
                     {link ? <div data-content={"section_link"} className={"mt-8"}>
                         <Button size={"lg"} variant={"gray"} component={Link} href={link?.url} rightSection={<LinkForm  className={"w-6 h-6"} />}>{link?.title}</Button>
                     </div> : null}
@@ -202,9 +207,9 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                 {cards ? <div data-content="section_gallery">
                     {cards.map((card:any) => <div key={card.id}>
                         <div data-content={"card_title"} className={"mb-8"}>
-                            <Title unstyled order={3} >
+                            <h3>
                                 {card.title}
-                            </Title>
+                            </h3>
                         </div>
                         <div data-content="section_gallery">
                             <Gallery images={card.gallery} height={"100%"} slideSize={{base: "100%", md: "50%", lg: "33.33%", xl: "25%"}}/>

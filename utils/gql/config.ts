@@ -1,6 +1,6 @@
 import {ProductFragment} from "@/utils/gql/Fragment";
 
 export const config = `query Configuration{konfiguracziyaSajta{website_name slogan address logo{id logo{url width height}logo_inverse{url width height}}emails{email id label}Phones{id label number phone}Social{icon_inverse{documentId url width height}icon{documentId url width height}label id link}}}`
-export const productBySlug = `${ProductFragment} query Product($filters:ProductFiltersInput){products(filters:$filters, pagination: { limit: 100 }){...ProductFields}}`
+export const productBySlug = `${ProductFragment} query Product($filters:ProductFiltersInput){products(filters:$filters, pagination: { limit: 100 }){...ProductFields} }`
 export const hydraulicProductBySlug = `query HydraulicProduct($slug: String) { productHydraulics(filters: { hydraulic_slug: { eq: $slug } }) { title short_dedcription spec_item { title id description } gallery(pagination: { limit: 999 }) { height width url } specs image { height width url } hydraulic_slug } }`
 export const productsQuery = `${ProductFragment} query Products($filters:ProductFiltersInput) { products(pagination: { limit: 100 }, filters: $filters) { ...ProductFields } }`
