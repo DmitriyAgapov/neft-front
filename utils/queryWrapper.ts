@@ -12,6 +12,7 @@ export const queryWrapper = async (query:string, variables?: Record<string, unkn
             variables: variables
 
         }),
+        next: { revalidate: 3600 }
 
     })
     console.log(JSON.stringify({
