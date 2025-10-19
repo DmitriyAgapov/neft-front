@@ -9,7 +9,9 @@ const urls = {
     "press-krab-nh-41-09-000-50ts" : `/hydro/press1/`,
     "press-krab-nh-41-06-000-36ts" : `/hydro/press2/`,
     "nasosnaya-stancziya-nh-67-12-000" : `/hydro/nasos-station/`,
+    "nasosnaya-stancziya-nh-67-12-000-01" : `/hydro/nasos-station/`,
     "nasosnaya-stancziya-nh-67-17-000-01" : `/hydro/nasos-station2/`,
+    "nasosnaya-stancziya-nh-67-17-000" : `/hydro/nasos-station2/`,
 }
 const basePath = process.env.NODE_ENV !== "development" ? process.env.NEXT_PUBLIC_IMG_PROD  : "http://localhost:3000/";
 export default function ImageRotate(props:{slug?: string | undefined;}) {
