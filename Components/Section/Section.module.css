@@ -381,5 +381,11 @@
             }
         }
     }
+    &[data-content="section-breadcrumbs"] {
+        padding: 2rem 0 1rem;
+        & + section {
+            padding-top: 0;
+        }
+    }
 
 }

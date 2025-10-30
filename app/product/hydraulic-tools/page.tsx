@@ -1,6 +1,6 @@
 import {queryWrapper} from "@/utils/queryWrapper";
 import styles from "./style.module.css";
-import styless from "@/Components/ProductSelector//ProductSelector.module.css";
+import styless from "@/Components/ProductSelector/ProductSelector.module.css";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
 import {Button, Title} from "@mantine/core";
 import ProductRoot from "@/Components/ProductVariantStore/ProductRoot";
@@ -10,19 +10,17 @@ import Breadcrumbs from "@/Components/Breadcrumbs/Breadcrumbs";
 import {pageTools} from "@/utils/gql/pageTools";
 import TabsProductTools from "@/Components/TabsProduct/TabsProductTools";
 
-export default async function Page({params}: { params: Promise<{ slug: string }> }) {
-    const {slug} = await params;
+export default async function Page() {
     const {category} = await queryWrapper(pageTools);
-    console.log(category)
     if (!category) return
     const {title, description,child_categories, image, short_dedcription, category:type, cards, gallery} = category;
-    console.log(description)
-    return <>
 
+    return <>
+        <Breadcrumbs/>
         <section className={styles.section} data-content={`section-${type}`}>
-            <div className={'col-1 col-span-5 self-start'} data-type={`section-${type}-intro`}>
-                <div data-content={"section_title relative"} className={"mb-8"}>
-                    <Breadcrumbs/>
+            <div  data-type={`section-${type}-intro`}>
+                <div data-content={"section_title"} className={"mb-8 relative z-1"}>
+
                     <h1>
                         {title}
 
@@ -56,7 +54,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             </div>
             <div data-content={"section_cards"} className={'mt-4  md:grid flex lg:grid-cols-4 md:grid-cols-2 gap-4 max-md:overflow-x-scroll max-md:cursor-grab'}>
                 {child_categories ? child_categories.map((item: any) => <div
-                    key={item.category} className={'flex w-full h-80 flex-col flex-wrap card_child_category aspect-square bg-white rounded-xl px-6 pt-8 pb-4 relative'}>
+                    key={item?.category} className={'flex w-full h-80 flex-col flex-wrap card_child_category aspect-square bg-white rounded-xl px-6 pt-8 pb-4 relative'}>
                     <div className={'card_child_category_title relative z-10'}>
                         <h4 className={'my-0'}>{item.title}</h4>
                     </div>
@@ -64,7 +62,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                         <ImageCustoms width={item.image.width} height={item.image.height} src={item.image.url}/>
                     </div>
                     <div className={'card_child_category_link relative z-10 mt-auto'}>
-                        <Button  variant={"glass"} href={`/product/${type}/${item.category}`} size={"md"} component={"a"}>Смотреть все</Button>
+                        <Button  variant={"glass"} href={`/product/${type}/${item?.category}`} size={"md"} component={"a"}>Смотреть все</Button>
                     </div>
                 </div>) : null}
             </div>

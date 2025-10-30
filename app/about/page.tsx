@@ -34,7 +34,7 @@ export default async function Page({params}: { params: Promise<{ url: string }> 
       <>
           <section className={styles.section} data-content={`section-page`}>
               <div data-content={"section_title"}>
-                  <Breadcrumbs/>
+
                   <h2>
                       {page.title}
                   </h2>

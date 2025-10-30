@@ -52,6 +52,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
     switch (type) {
         case "mixers":
             return <>
+				<Breadcrumbs/>
                 <section className={styles.section} data-content={`section-${type}`}>
                     <div className={'col-1 col-span-4 self-start'}>
                         <div data-content={"section_title relative"} className={"mb-8"}>
@@ -95,12 +96,15 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             </>
         case "controls":
             return <>
-
+                <Breadcrumbs/>
                 <section className={styles.section} data-content={`section-${type}`}>
                     <div className={'col-1 col-span-5 self-start'} data-type={`section-${type}-intro`}>
                         <div data-content={"section_title relative"} className={"mb-8"}>
-                            <Breadcrumbs/>
-                            <h1>
+
+                            <h1 style={{
+								fontSize: 'var(--mantine-h2-font-size)',
+								lineHeight: 'var(--mantine-h2-line-height)'
+							}}>
                                 {title}
 
                             </h1>
@@ -138,11 +142,11 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             </>
         case "signals":
             return <>
-
+                <Breadcrumbs/>
                 <section className={styles.section} data-content={`section-${type}`}>
                     <div className={'col-1 col-span-5 self-start'} data-type={`section-${type}-intro`}>
                         <div data-content={"section_title relative"} className={"mb-8"}>
-                            <Breadcrumbs/>
+
                             <h1>
                                 {title}
 

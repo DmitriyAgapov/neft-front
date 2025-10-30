@@ -22,6 +22,7 @@ export type SectonProps = {
     title: string;
     type: string;
     description?: any;
+    children?: any;
     short_dedcription?: any;
     link?: {
         title: string;
@@ -30,7 +31,7 @@ export type SectonProps = {
     cards?: Record<string, unknown | any>[];
     gallery?: Record<string, unknown | any>[];
 }
-const Section = ({title, type, description, short_dedcription, cards, gallery, link, settings}:SectonProps & {settings?: Settings}) => {
+const Section = ({title, type, description, children, short_dedcription, cards, gallery, link, settings}:SectonProps & {settings?: Settings}) => {
     switch (type) {
         case 'before_screen':
             return <section className={styles.section} data-content={`section-${type}`}>
@@ -218,6 +219,8 @@ const Section = ({title, type, description, short_dedcription, cards, gallery, l
                 </div> : null}
             </section>
 
+        case 'breadcrumbs':
+            return <section className={styles.section}  data-content={`section-${type}`}><div data-content={"section_content"}>{children}</div></section>
         case 'page_form':
             return <section className={styles.section}  data-content={`section-${type}`}>
                 <div data-content={"section_description"}>

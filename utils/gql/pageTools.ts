@@ -1,6 +1,7 @@
 import {MetaFragment, SettingFragment} from "@/utils/gql/Fragment";
 
-export const pageTools = `query CategoryTools { category(documentId: "vb1vs78631smz7v3txszgdep") { title short_dedcription category image { width url height } description child_categories { title image { width height url } category product_hydraulics {      image { width height url } title short_dedcription hydraulic_slug } } } }`
+export const pageTools = `query CategoryTools { category(documentId: "vb1vs78631smz7v3txszgdep") { title short_dedcription category image { width url height } description child_categories(sort: ["order"]) { order category title image { width height url } category product_hydraulics { category { category } image { width height url } title short_dedcription hydraulic_slug } } } }
+`
 export const pagePage = `${MetaFragment}${SettingFragment}query Pages($url:String){pages(filters:{url:{eq:$url}}){documentId title short_dedcription settings { ...SettingFragment} seo{...MetaFragment}description sections(sort:"order"){documentId title short_dedcription settings{...SettingFragment}description order link{id title url}type gallery{url width height documentId}cards{... on ComponentLayoutCard{image{url width height documentId}link{id title url}id title description}... on ComponentLayoutGallery{gallery{url width height documentId}id title}}}}}`
 export const pageMetaPage = `${MetaFragment}query MetaData($url: String) { pages(filters: { url: { eq: $url } }) { title seo { ...MetaFragment } } }`
 export const pageEvents = `${MetaFragment}  query Events($url: String) { events(filters: { url: { eq: $url } }, sort: "create_date") { create_date documentId gallery { width height url } image { width height url } intro text title url seo { ...MetaFragment } } }`

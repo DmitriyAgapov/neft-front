@@ -9,6 +9,7 @@ import Section from "@/Components/Section/Section";
 import TabsProductControls from "@/Components/TabsProduct/TabsProductControls";
 import Breadcrumbs from "@/Components/Breadcrumbs/Breadcrumbs";
 import ImageRotate from "@/Components/ImageRotate/ImageRotate";
+import { urls } from "@/utils/constants";
 
 export default async function Page({params}: { params: Promise<{ slug: string }> }) {
     const {slug} = await params;
@@ -19,14 +20,18 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
 
     if (!productHydraulics[0]) return
     const {title, description, image, short_dedcription, cards, gallery} = productHydraulics[0];
-
+	console.log(productHydraulics[0])
+	const hasRotate = urls.hasOwnProperty(slug);
+	console.log(hasRotate, slug, urls)
     return <>
-
+        <Breadcrumbs/>
         <section className={styles.section} data-content={`section-hydraulic-product`}>
             <div className={'col-1 col-span-5 self-start'} data-type={`section-hydraulic-product-intro`}>
                 <div data-content={"section_title relative"} className={"mb-8"}>
-                    <Breadcrumbs/>
-                    <h1>
+
+                    <h1 style={{
+						fontSize: `var(--mantine-h2-font-size)`, lineHeight: `var(--mantine-h2-line-height)`
+					}}>
                         {title}
 
                     </h1>
@@ -45,7 +50,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             <ProductRoot>
                 <div className={styles.ProductSelector} data-type={`product-hydraulic-product`}>
                     <div className={styles.wrapper} data-content={`wrapper-hydraulic-product`}>
-                        <ImageRotate slug={slug as string}/>
+						{hasRotate ? <ImageRotate slug={slug as string}/> : <ImageCustoms width={image.width} height={image.height} src={image.url}/>}
 
                     </div>
                 </div>

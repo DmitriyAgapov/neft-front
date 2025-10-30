@@ -8,6 +8,7 @@ import CardFeature from "@/Components/Cards/CardFeature";
 import {ImageCustoms} from "@/Components/ImageCustom";
 import {LinkForm} from "@/Components/Icons/Icons";
 import {usePathname} from "next/navigation";
+import CardTool from "@/Components/Cards/CardTool";
 
 function TabsProductTools({data : _data}: {data: any}) {
     const pathname = usePathname()
@@ -41,21 +42,23 @@ function TabsProductTools({data : _data}: {data: any}) {
             </Tabs.List>
             {_data.map((el:any, index:number) =>    <Tabs.Panel value={el.category} key={el.category+"_panel"} className={'grid gap-4'}>
                 {el.product_hydraulics && el.product_hydraulics.length ? el.product_hydraulics.map((item:any) =>
-                    <div key={item.hydraulic_slug} data-type={'card_product_hydraulic'} className={'md:grid grid-cols-[8rem_1fr] gap-4 p-6 bg-white rounded-xl'}>
-                        {item.image ? <div className={''}>
-                            <ImageCustoms src={item.image.url} width={item.image.width} height={item.image.height} />
-                        </div> : null}
-                        <div className={'flex flex-col gap-4 mt-4 md:mt-0'}>
-                            <Title order={4} className={"!text-[var(--mantine-color-blue-light-color)]"}>{item.title}</Title>
-                            <BlockRendererClient
-                                content={item.short_dedcription}
-                            />
-                            <div className={'md:flex gap-4 mt-5'}>
-                                <Button className={"max-md:!block"} variant={"primary"} href={`/form`} mb={16} size={"sm"} component={"a"} >Оставить заявку</Button>
-                                <Button className={"max-md:!block"} variant={"icon"} href={pathname + `/${item.hydraulic_slug}`} size={"sm"} component={"a"} rightSection={<LinkForm className={'w-4 h-4'}/>}>Подробнее</Button>
-                            </div>
-                        </div>
-                    </div>)
+                    <CardTool  key={item.hydraulic_slug} item={item}/>
+                    // <div key={item.hydraulic_slug} data-type={'card_product_hydraulic'} className={'md:grid grid-cols-[8rem_1fr] gap-4 p-6 bg-white rounded-xl'}>
+                    //     {item.image ? <div className={''}>
+                    //         <ImageCustoms src={item.image.url} width={item.image.width} height={item.image.height} />
+                    //     </div> : null}
+                    //     <div className={'flex flex-col gap-4 mt-4 md:mt-0'}>
+                    //         <Title order={4} className={"!text-[var(--mantine-color-blue-light-color)]"}>{item.title}</Title>
+                    //         <BlockRendererClient
+                    //             content={item.short_dedcription}
+                    //         />
+                    //         <div className={'md:flex gap-4 mt-5'}>
+                    //             <Button className={"max-md:!block"} variant={"primary"} href={`/form`} mb={16} size={"sm"} component={"a"} >Оставить заявку</Button>
+                    //             <Button className={"max-md:!block"} variant={"icon"} href={pathname + `/${item.hydraulic_slug}`} size={"sm"} component={"a"} rightSection={<LinkForm className={'w-4 h-4'}/>}>Подробнее</Button>
+                    //         </div>
+                    //     </div>
+                    // </div>
+                    )
                  : null}
                 {data.description ? <div  data-type={'card_specs'} className={styles.specs}>
                     <BlockRendererClient

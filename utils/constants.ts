@@ -38,3 +38,13 @@ export const dataMenu = [
         href: "/contacts"
     }
 ]
+
+export const urls = {
+	"press-krab-nh-67-04-000-100ts" : `/hydro/press/`,
+	"press-krab-nh-41-09-000-50ts" : `/hydro/press1/`,
+	"press-krab-nh-41-06-000-36ts" : `/hydro/press2/`,
+	"nasosnaya-stancziya-nh-67-12-000" : `/hydro/nasos-station/`,
+	"nasosnaya-stancziya-nh-67-12-000-01" : `/hydro/nasos-station/`,
+	"nasosnaya-stancziya-nh-67-17-000-01" : `/hydro/nasos-station2/`,
+	"nasosnaya-stancziya-nh-67-17-000" : `/hydro/nasos-station2/`,
+}

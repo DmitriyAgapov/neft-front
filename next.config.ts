@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
                 source: '/',
                 destination: '/index',
             },
+
         ];
     },
     devIndicators: false,

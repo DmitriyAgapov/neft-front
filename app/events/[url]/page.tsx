@@ -16,10 +16,11 @@ export default async function PageEvent({params}: { params: Promise<{ url: strin
     console.log(page, 'page')
   return (
       <>
+          <Breadcrumbs/>
           <section className={styles.section} data-content={`section-page_event`}>
 
               <div data-content={"section_title"}>
-                  <Breadcrumbs/>
+
                   <h3  className={"!my-2"}>
                       {page.title}
                   </h3>
