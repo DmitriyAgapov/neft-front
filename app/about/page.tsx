@@ -2,10 +2,8 @@ import {queryWrapper} from "@/utils/queryWrapper";
 import Section, {SectonProps} from "@/Components/Section/Section";
 import {pagePage} from "@/utils/gql/pageTools";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
-
 import styles from "../[url]/styles.module.css";
-import Breadcrumbs from "@/Components/Breadcrumbs/Breadcrumbs";
-import type {Metadata, ResolvingMetadata} from "next";
+import type {Metadata} from "next";
 import {config} from "@/utils/gql/config";
 import {notFound} from "next/navigation";
 export async function generateMetadata(): Promise<Metadata> {

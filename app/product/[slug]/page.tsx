@@ -3,9 +3,8 @@ import {productBySlug} from "@/utils/gql/config";
 import styles from "./style.module.css";
 import styless from "@/Components/ProductSelector//ProductSelector.module.css";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
-import {Button, Title} from "@mantine/core";
+import {Button} from "@mantine/core";
 import ProductRoot from "@/Components/ProductVariantStore/ProductRoot";
-import ProductSelector from "@/Components/ProductSelector/ProductSelector";
 import {ImageCustoms} from "@/Components/ImageCustom";
 import ProductSelectVariant from "@/Components/ProductVariants/ProductSelectVariant";
 import {TabsProduct} from "@/Components/TabsProduct";
@@ -26,7 +25,7 @@ export async function generateMetadata(
     { params }: Props,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
-    const slug = (await params).slug
+    const slug = (await params).slug;
 
     const {products} = await queryWrapper(productBySlug, {
         "filters": {"slug": {"eq": slug}}

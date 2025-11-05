@@ -17,7 +17,6 @@ import Breadcrumbs from "@/Components/Breadcrumbs/Breadcrumbs";
 import type {Metadata, ResolvingMetadata} from "next";
 import {config} from "@/utils/gql/config";
 import {notFound} from "next/navigation";
-import TabsProductTools from "@/Components/TabsProduct/TabsProductTools";
 import CardTool from "@/Components/Cards/CardTool";
 
 type Props = {
@@ -47,17 +46,17 @@ export async function generateMetadata(
 }
 export default async function Page({params}: { params: Promise<{ category: string }> }) {
     const {category} = await params;
-    console.log(category)
+
     const {categories} = await queryWrapper(categoryByCategory, {
        "category": category,
         "category_parent": "hydraulic-tools"
 
     });
-    console.log(categories)
+
     if (!categories) return
     const {title,  description, image, short_dedcription, product_hydraulics, gallery} = categories[0];
     const type = "hydraulic-tools"
-	console.log(product_hydraulics)
+
     return <>
         <Breadcrumbs/>
         <section className={styles.section} data-content={`section-${type}`}>

@@ -1,5 +1,5 @@
 import {queryWrapper} from "@/utils/queryWrapper";
-import {hydraulicProductBySlug} from "@/utils/gql/config";
+import { categoryByCategory, config, hydraulicProductBySlug } from "@/utils/gql/config";
 import styles from "./style.module.css";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
 import {Button, Title} from "@mantine/core";
@@ -10,7 +10,32 @@ import TabsProductControls from "@/Components/TabsProduct/TabsProductControls";
 import Breadcrumbs from "@/Components/Breadcrumbs/Breadcrumbs";
 import ImageRotate from "@/Components/ImageRotate/ImageRotate";
 import { urls } from "@/utils/constants";
+import type { Metadata, ResolvingMetadata } from "next";
+import { notFound } from "next/navigation";
 
+type Props = {
+	params: Promise<{ slug: string }>
+	searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+export async function generateMetadata(
+	{ params }: Props,
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	const slug = (await params).slug
+
+	const {productHydraulics} = await queryWrapper(hydraulicProductBySlug, {
+		"slug": slug
+	});
+	const data = await queryWrapper(config);
+
+	const page = productHydraulics[0];
+	if (!page) return  notFound()
+	return {
+		title: data.konfiguracziyaSajta.website_name + ` - ${page.seo?.metaTitle ?? page.title}` ,
+		description: page.seo?.metaDescription ?? "",
+		keywords: page.seo?.keywords  ?? "",
+	}
+}
 export default async function Page({params}: { params: Promise<{ slug: string }> }) {
     const {slug} = await params;
 

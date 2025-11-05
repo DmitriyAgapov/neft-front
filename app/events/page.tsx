@@ -19,7 +19,7 @@ export async function generateMetadata(
     const url = (await params).url
 
     const {pages} = await queryWrapper(pagePage, {
-        "url": url
+        "url": "events"
     });
     const data = await queryWrapper(config);
 
