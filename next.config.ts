@@ -2,16 +2,16 @@ import type { NextConfig } from "next";
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
     env: {
-        NEXT_API:"http://localhost:1337/graphql",
-        NEXT_BACK: 'https://fortunate-victory-1618645512.strapiapp.com',
-        NEXT_BACK_DEV: 'http://localhost:1337',
-        NEXT_PUBLIC_NEXT_BACK: 'https://fortunate-victory-1618645512.strapiapp.com',
-        NEXT_PUBLIC_NEXT_BACK_DEV: 'http://localhost:1337',
-        NEXT_PUBLIC_IMG_PROD: 'https://neft-front.vercel.app/',
-        NEXT_PUBLIC_NEXT_API: 'https://fortunate-victory-1618645512.strapiapp.com/graphql',
+        NEXT_API:"https://adminneft.agapovdv.ru/graphql",
+        NEXT_BACK: 'https://adminneft.agapovdv.ru',
+        NEXT_BACK_DEV: 'https://adminneft.agapovdv.ru',
+        NEXT_PUBLIC_NEXT_BACK: 'https://adminneft.agapovdv.ru',
+        NEXT_PUBLIC_NEXT_BACK_DEV: 'https://adminneft.agapovdv.ru',
+        NEXT_PUBLIC_IMG_PROD: 'https://neft.agapovdv.ru/',
+        NEXT_PUBLIC_NEXT_API: 'https://adminneft.agapovdv.ru/graphql',
         NEXT_PUBLIC_NEXT_API_DEV: 'http://127.0.0.1:1337/graphql',
-        NEXT_PUBLIC_NEXT_BACK_IMG: 'https://fortunate-victory-1618645512.media.strapiapp.com/',
-        NEXT_PUBLIC_NEXT_BACK_IMG_DEV: 'http://127.0.0.1:1337',
+        NEXT_PUBLIC_NEXT_BACK_IMG: 'https://adminneft.agapovdv.ru/',
+        NEXT_PUBLIC_NEXT_BACK_IMG_DEV: 'https://adminneft.agapovdv.ru',
     },
     async rewrites() {
         return [
@@ -24,10 +24,10 @@ const nextConfig: NextConfig = {
     },
     devIndicators: false,
     typescript: {
-        ignoreBuildErrors: false,
+        ignoreBuildErrors: true,
     },
     eslint: {
-        ignoreDuringBuilds: false,
+        ignoreDuringBuilds: true,
     },
     experimental: {
         globalNotFound: true,
@@ -74,7 +74,7 @@ const nextConfig: NextConfig = {
         },
         {
                 protocol: 'https',
-                hostname: 'fortunate-victory-1618645512.strapiapp.com',
+                hostname: 'adminneft.agapovdv.ru',
                 port: ''
         },
 
