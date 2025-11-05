@@ -9,7 +9,27 @@ import Section from "@/Components/Section/Section";
 import Breadcrumbs from "@/Components/Breadcrumbs/Breadcrumbs";
 import {pageTools} from "@/utils/gql/pageTools";
 import TabsProductTools from "@/Components/TabsProduct/TabsProductTools";
+import type { Metadata, ResolvingMetadata } from "next";
+import { categoryByCategory, config } from "@/utils/gql/config";
+import { notFound } from "next/navigation";
 
+type Props = {
+	params: Promise<{ category: string }>
+	searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+export async function generateMetadata(): Promise<Metadata> {
+	const {category} = await queryWrapper(pageTools);
+	console.log(category)
+	const data = await queryWrapper(config);
+
+	const page = category;
+	if (!page) return  notFound()
+	return {
+		title: data.konfiguracziyaSajta.website_name + ` - ${page.seo?.metaTitle ?? page.title}` ,
+		description: page.seo?.metaDescription ?? "",
+		keywords: page.seo?.keywords  ?? "",
+	}
+}
 export default async function Page() {
     const {category} = await queryWrapper(pageTools);
     if (!category) return
