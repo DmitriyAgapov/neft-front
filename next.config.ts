@@ -69,7 +69,7 @@ const nextConfig: NextConfig = {
 
         {
                 protocol: 'https',
-                hostname: 'fortunate-victory-1618645512.media.strapiapp.com',
+                hostname: 'neft.agapovdv.ru',
                 port: ''
         },
         {
