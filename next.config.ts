@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
         NEXT_PUBLIC_IMG_PROD: 'https://neft.agapovdv.ru/',
         NEXT_PUBLIC_NEXT_API: 'https://adminneft.agapovdv.ru/graphql',
         NEXT_PUBLIC_NEXT_API_DEV: 'http://127.0.0.1:1337/graphql',
-        NEXT_PUBLIC_NEXT_BACK_IMG: 'https://adminneft.agapovdv.ru/',
+        NEXT_PUBLIC_NEXT_BACK_IMG: 'https://adminneft.agapovdv.ru',
         NEXT_PUBLIC_NEXT_BACK_IMG_DEV: 'https://adminneft.agapovdv.ru',
     },
     async rewrites() {
