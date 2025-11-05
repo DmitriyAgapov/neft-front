@@ -25,13 +25,11 @@ type Props = {
 }
 export async function generateMetadata(
     { params }: Props,
-    parent: ResolvingMetadata
 ): Promise<Metadata> {
     const category = (await params).category
 
     const {categories} = await queryWrapper(categoryByCategory, {
-        "category": category,
-        "category_parent": "hydraulic-tools"
+        "category": category
 
     });
     const data = await queryWrapper(config);
@@ -48,9 +46,7 @@ export default async function Page({params}: { params: Promise<{ category: strin
     const {category} = await params;
 
     const {categories} = await queryWrapper(categoryByCategory, {
-       "category": category,
-        "category_parent": "hydraulic-tools"
-
+       "category": category
     });
 
     if (!categories) return

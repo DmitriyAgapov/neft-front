@@ -13,7 +13,7 @@ export const queryWrapper = async (query:string, variables?: Record<string, unkn
             variables: variables
 
         }),
-		cache: 'force-cache',
+		cache: "no-cache",
         next: { revalidate: 3600 }
 
     })
