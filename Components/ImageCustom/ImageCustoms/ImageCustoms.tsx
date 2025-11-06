@@ -11,7 +11,6 @@ const ImageCustoms = (props:Partial<StaticImageData> & {
         } else {
             return  props.src
         }
-
     })()
 
     return <Image quality={90} alt={''} src={urlResult} width={!props.fill ? props.width : undefined} height={!props.fill ? props.height : undefined} fill={props.fill} className={props.className} style={props.style}/>

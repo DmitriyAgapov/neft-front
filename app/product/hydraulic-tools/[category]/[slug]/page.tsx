@@ -47,7 +47,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
     const {title, description, image, short_dedcription, cards, gallery} = productHydraulics[0];
 	console.log(productHydraulics[0])
 	const hasRotate = urls.hasOwnProperty(slug);
-	console.log(hasRotate, slug, urls)
+
     return <>
         <Breadcrumbs/>
         <section className={styles.section} data-content={`section-hydraulic-product`}>
