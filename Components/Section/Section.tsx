@@ -82,7 +82,7 @@ const Section = ({title, type, description, children, short_dedcription, cards, 
                     <BlockRendererClient content={description}/>
                 </div>
                 <div data-content={"section_title"}>
-                    <Title unstyled order={2} size={68}>
+                    <Title unstyled order={2} size={68} lh={1}>
                         {title.split(" ")[0]}
                         <span> {title.split(" ")[1]}</span>
                     </Title>

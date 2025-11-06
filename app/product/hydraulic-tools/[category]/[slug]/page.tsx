@@ -51,7 +51,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
     return <>
         <Breadcrumbs/>
         <section className={styles.section} data-content={`section-hydraulic-product`}>
-            <div className={'col-1 col-span-5 self-start'} data-type={`section-hydraulic-product-intro`}>
+            <div className={'col-1 xl:col-span-6 col-span-4 self-start'} data-type={`section-hydraulic-product-intro`}>
                 <div data-content={"section_title relative"} className={"mb-8"}>
 
                     <h1 style={{

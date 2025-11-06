@@ -6,6 +6,7 @@ import Logo from "@/Components/Logo/Logo";
 import MenuHeader from "@/Components/MenuHeader/MenuHeader";
 import {LinkForm} from "@/Components/Icons/Icons";
 import {useDisclosure} from "@mantine/hooks";
+import Link from "next/link";
 
 const GridLayoutWrapper = ({data, children}:{data: any, children: React.ReactNode & any}) => {
 
@@ -37,7 +38,7 @@ const GridLayoutWrapper = ({data, children}:{data: any, children: React.ReactNod
                                    className={'text-lg font-semibold text-black'}>
                                     {data.konfiguracziyaSajta.Phones[0].phone}
                                 </a>
-                                <Button component={"a"} href={"form"} className={'!bg-gray-100 !text-gray-600'}
+                                <Button component={Link} href={"form"} className={'!bg-gray-100 !text-gray-600'}
                                         variant={"light"} rightSection={<LinkForm className={'w-4 h-4 *:fill-gray-600'}/>}>Оставить
                                     заявку</Button>
                             </li>}

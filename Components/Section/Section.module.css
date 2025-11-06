@@ -254,7 +254,31 @@
                        grid-row: 4/6;
                    }
                }
+			   @media screen and (min-width: 768px) and (max-width: 74rem){
+				   & [data-type="card_about_text"], & [data-type="card_about_image"] {
+					   /*background: red;*/
+					   grid-column: auto !important;
+					   grid-row: auto !important;
+				   }
+				   &:nth-child(odd) {
+					   & [data-type="card_about_image"] {
+						   grid-column: 1/5 !important;
+					   }
+					   & [data-type="card_about_text"] {
+						   grid-column: 5/9 !important;
+					   }
 
+				   }
+				   &:nth-child(even) {
+					   & [data-type="card_about_image"] {
+						   grid-column: 5/9 !important;
+					   }
+					   & [data-type="card_about_text"] {
+						   grid-column: 1/5 !important;
+					   }
+				   }
+
+			   }
 
 
 

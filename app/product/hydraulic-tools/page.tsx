@@ -72,7 +72,7 @@ export default async function Page() {
             <div data-content={"section_title relative"}>
                 <h3>Что входит в комплект/сборку?</h3>
             </div>
-            <div data-content={"section_cards"} className={'mt-4  md:grid flex lg:grid-cols-4 md:grid-cols-2 gap-4 max-md:overflow-x-scroll max-md:cursor-grab'}>
+            <div data-content={"section_cards"} className={'mt-4  md:grid flex xl:grid-cols-4 md:grid-cols-2 gap-4 max-md:overflow-x-scroll max-md:cursor-grab'}>
                 {child_categories ? child_categories.map((item: any) => <div
                     key={item?.category} className={'flex w-full h-80 flex-col flex-wrap card_child_category aspect-square bg-white rounded-xl px-6 pt-8 pb-4 relative'}>
                     <div className={'card_child_category_title relative z-10'}>

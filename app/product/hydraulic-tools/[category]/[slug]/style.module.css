@@ -96,6 +96,10 @@
         grid-column: 7/-1;
         grid-row: 1/2;
         /*padding: 0 5vw;*/
+		@media screen and (min-width: 1024px) and (max-width: 1279px){
+			grid-column:5/-1;
+		}
+
     }
 }
 .wrapper {
