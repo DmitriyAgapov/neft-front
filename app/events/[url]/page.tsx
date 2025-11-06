@@ -9,6 +9,7 @@ import Gallery from "@/Components/Gallery/Gallery";
 import type { Metadata, ResolvingMetadata } from "next";
 import { config } from "@/utils/gql/config";
 import { notFound } from "next/navigation";
+import BreadcrumbsBlock from "@/Components/Breadcrumbs/BreadcrumbsBlock";
 
 type Props = {
 	params: Promise<{ url: string }>
@@ -42,11 +43,11 @@ export default async function PageEvent({params}: { params: Promise<{ url: strin
     console.log(page, 'page')
   return (
       <>
-          <Breadcrumbs/>
+
           <section className={styles.section} data-content={`section-page_event`}>
 
               <div data-content={"section_title"}>
-
+				  <BreadcrumbsBlock/>
                   <h3  className={"!my-2"}>
                       {page.title}
                   </h3>
