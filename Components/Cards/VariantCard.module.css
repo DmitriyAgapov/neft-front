@@ -71,6 +71,9 @@
     &:nth-child(odd) {
         background-color: white;
     }
+    [data-card="description"] {
+		align-self: end;
+	}
     [data-card='title'] {
         font-weight: 600;
         color: black;
