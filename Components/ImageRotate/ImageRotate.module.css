@@ -13,7 +13,7 @@
     z-index: 1;
     bottom: 0;
     right: 1rem;
-    a {
+    button {
         padding: 0.5rem 1.25rem;
         display: inline-block;
         border-bottom: 0;

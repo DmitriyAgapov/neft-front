@@ -48,7 +48,10 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
     const {title, description, image,image_full, short_dedcription, cards, produkty_instrumenties, gallery} = productHydraulics[0];
 	console.log(produkty_instrumenties)
 	const hasRotate = urls.hasOwnProperty(slug);
-
+	const images:string[] =  [];
+	for (let i = 1; i < 181; i++) {
+		images.push(`${urls[slug]}` + `file_${i}.webp`)
+	}
     return <>
         <Breadcrumbs/>
         <section className={styles.section} data-content={`section-hydraulic-product`}>
@@ -77,7 +80,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
                 <div className={styles.ProductSelector} data-type={`product-hydraulic-product`}>
                     <div className={styles.wrapper} data-content={`wrapper-hydraulic-product`}>
 						{/*{hasRotate ? <ImageRotate slug={slug as string}/> : <ImageCustoms width={image.width} height={image.height} src={image.url}/>}*/}
-						{hasRotate ? <ImageRotateNew   slug={slug as string}/> : <ImageCustoms width={image_full ? image_full.width : image.width } height={image_full ? image_full.height : image.height } src={image_full ? image_full.url : image.url}/>}
+						{hasRotate ? <ImageRotateNew images={images}   slug={slug as string}/> : <ImageCustoms width={image_full ? image_full.width : image.width } height={image_full ? image_full.height : image.height } src={image_full ? image_full.url : image.url}/>}
 
                     </div>
                 </div>
