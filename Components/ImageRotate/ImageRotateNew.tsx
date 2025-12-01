@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { urls } from "@/utils/constants";
 import styles from "@/Components/ImageRotate/ImageRotate.module.css";
@@ -41,11 +41,14 @@ export default function ImageRotateNew({
 	const startRotationRef = useRef(0);
 	const lastTimeRef = useRef<number>(0);
 	const animationRef = useRef<number>(null);
+	const images = useMemo(() => {
+		const images:string[] = _images || [];
+		for (let i = 1; i < 181; i++) {
+			images.push(`${urls[slug]}` + `file_${i}.webp`)
+		}
+		return images;
+	}, [ slug, _images ])
 
-	const images:string[] = _images || [];
-	for (let i = 1; i < 181; i++) {
-		images.push(`${basePath+urls[slug]}` + `file_${i}.webp`)
-	}
 	const imageIndex = Math.floor((rotation / 360) * images.length) % images.length;
 	const currentImage = images[imageIndex];
 
