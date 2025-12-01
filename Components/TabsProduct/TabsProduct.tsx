@@ -5,6 +5,7 @@ import classes from './TabsProduct.module.css';
 import styles from "@/Components/Cards/VariantCard.module.css";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
 import CardFeature from "@/Components/Cards/CardFeature";
+import { ImageCustoms } from "@/Components/ImageCustom";
 
 function TabsProduct({data : _data}: {data: any}) {
     const {documentId, ...data} = _data;
@@ -29,7 +30,11 @@ function TabsProduct({data : _data}: {data: any}) {
                 <Tabs.Tab value="feature" ref={setControlRef('2')} className={classes.tab}>
                     Доступные опции
                 </Tabs.Tab>
-                <Tabs.Tab value="docs" ref={setControlRef('3')} className={classes.tab}>
+				{_data.schema ? <Tabs.Tab value="schema" ref={setControlRef('3')} className={classes.tab}>
+                   Схема
+                </Tabs.Tab> : null}
+
+                <Tabs.Tab value="docs" ref={setControlRef('4')} className={classes.tab}>
                     Документы и сертификаты
                 </Tabs.Tab>
 
@@ -58,7 +63,37 @@ function TabsProduct({data : _data}: {data: any}) {
                     {data.Feature.map((el:any) => <CardFeature key={el.id} {...el} />)}
                 </div>
             </Tabs.Panel>
+			{_data.schema ? <Tabs.Panel value="schema">
+				<div className={"grid md:grid-cols-2 xl:grid-cols-2 gap-x-4"}>
+					<div data-type={"schema-description"} className={"col-start-1 col-end-2 row-start-1 row-end-2 max-w-[24rem]"} style={{
+						position: 'relative',
+						zIndex: 2
+					}}>
+						<BlockRendererClient
+							content={_data.schema.description}
+						/>
+					</div>
+					<div style={{
+						margin: '-2rem',
+						width: 'calc(100% + 4rem)'
+					}} data-type={'schema-image'} className={`flex justify-end col-start-1 col-end-3 row-start-1 row-end-2 -mb-8`}>
+						{_data.schema.image.mime ==="video/mp4" ? <video width={"100%"} height={"100%"} style={{
+								marginBottom: '-1px',
+								width: '100%',
+							}}  loop autoPlay={true} muted  src={process.env.NEXT_PUBLIC_NEXT_BACK_IMG as string + _data.schema.image.url}/>
+							:
 
+							<ImageCustoms
+								src={_data.schema.image.url}
+								width={_data.schema.image.width ?? 640}
+								height={_data.schema.image.height ?? 480}
+
+							/>
+						}
+					</div>
+				</div>
+
+			</Tabs.Panel> : _data.schema}
             <Tabs.Panel value="docs">
                 {data.Document.map((el:any) => <p key={el.id}><a href={process.env.NEXT_PUBLIC_NEXT_BACK + el.attachment.url}>{el.title}</a></p>)}
             </Tabs.Panel>

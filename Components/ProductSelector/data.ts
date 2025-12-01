@@ -29,22 +29,22 @@ export const variants = [
             }
         ]
     },
-    {
-        title: "Двигатели",
-        slug: "dvigatel",
-        items: [
-            {
-                title: "22квт",
-                slug: "power-22"
-            },
-            {
-                title: "11кВт",
-                slug: "power-11"
-            },
-            {
-                title: "7.5кВт",
-                slug: "power-75"
-            }
-        ]
-    }
+    // {
+    //     title: "Двигатели",
+    //     slug: "dvigatel",
+    //     items: [
+    //         {
+    //             title: "22квт",
+    //             slug: "power-22"
+    //         },
+    //         {
+    //             title: "11кВт",
+    //             slug: "power-11"
+    //         },
+    //         {
+    //             title: "7.5кВт",
+    //             slug: "power-75"
+    //         }
+    //     ]
+    // }
 ];

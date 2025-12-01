@@ -39,7 +39,7 @@ export const dataMenu = [
     }
 ]
 
-export const urls = {
+export const urls:Record<string, string> = {
 	"press-krab-nh-67-04-000-100ts" : `/hydro/press/`,
 	"press-krab-nh-41-09-000-50ts" : `/hydro/press1/`,
 	"press-krab-nh-41-06-000-36ts" : `/hydro/press2/`,

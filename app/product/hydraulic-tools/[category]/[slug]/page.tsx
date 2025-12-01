@@ -12,6 +12,7 @@ import ImageRotate from "@/Components/ImageRotate/ImageRotate";
 import { urls } from "@/utils/constants";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+import ImageRotateNew from "@/Components/ImageRotate/ImageRotateNew";
 
 type Props = {
 	params: Promise<{ slug: string }>
@@ -44,8 +45,8 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
     });
 
     if (!productHydraulics[0]) return
-    const {title, description, image, short_dedcription, cards, gallery} = productHydraulics[0];
-	console.log(productHydraulics[0])
+    const {title, description, image,image_full, short_dedcription, cards, produkty_instrumenties, gallery} = productHydraulics[0];
+	console.log(produkty_instrumenties)
 	const hasRotate = urls.hasOwnProperty(slug);
 
     return <>
@@ -75,7 +76,8 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
             <ProductRoot>
                 <div className={styles.ProductSelector} data-type={`product-hydraulic-product`}>
                     <div className={styles.wrapper} data-content={`wrapper-hydraulic-product`}>
-						{hasRotate ? <ImageRotate slug={slug as string}/> : <ImageCustoms width={image.width} height={image.height} src={image.url}/>}
+						{/*{hasRotate ? <ImageRotate slug={slug as string}/> : <ImageCustoms width={image.width} height={image.height} src={image.url}/>}*/}
+						{hasRotate ? <ImageRotateNew   slug={slug as string}/> : <ImageCustoms width={image_full ? image_full.width : image.width } height={image_full ? image_full.height : image.height } src={image_full ? image_full.url : image.url}/>}
 
                     </div>
                 </div>

@@ -6,7 +6,6 @@ import styles from "./ImageRotate.module.css";
 import {PauseIcon, PlayIcon} from "@/Components/Icons/Icons";
 import { urls } from "@/utils/constants";
 
-
 const basePath = process.env.NODE_ENV !== "development" ? process.env.NEXT_PUBLIC_IMG_PROD  : "http://localhost:3000/";
 export default function ImageRotate(props:{slug?: string | undefined;}) {
     console.log(props.slug)
@@ -20,8 +19,6 @@ export default function ImageRotate(props:{slug?: string | undefined;}) {
         // @ts-ignore
         ref.current?.togglePlay()
     }
-    console.log(ref.current)
-    console.log(props.slug)
     return (
         <div className={styles.root}>
             <div className={styles.control}>

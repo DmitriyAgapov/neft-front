@@ -46,7 +46,7 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
         "filters": {"slug": {"eq": slug}}
     });
     if (!products[0]) return
-    const {title, type, description, Image, short_dedcription, cards, gallery} = products[0];
+    const {title, type, description, Image, short_dedcription, schema, cards, gallery} = products[0];
 
     switch (type) {
         case "mixers":

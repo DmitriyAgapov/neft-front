@@ -34,7 +34,15 @@
     &[data-type="product-controls"], &[data-type="product-hydraulic-tools"]  , &[data-type="product-hydraulic-product"]  {
         grid-column: 6/-1;
         grid-row: 1/2;
+		justify-items: end;
+		max-height: 30rem;
         padding: 0;
+		display: flex;
+		/*justify-content: end;*/
+		img {
+			width: auto !important;
+			height: 100% !important;
+		}
     }
 
 }

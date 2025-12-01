@@ -17,7 +17,8 @@ const ProductSelectVariant = () => {
 
                 <SegmentedControl
                     value={filters[el.slug] as string ?? ""}
-                    onChange={(value) => store.addFilter(el.slug, value)} radius="xl"
+                    onChange={(value) => store.addFilter(el.slug, value)}
+					radius="xl"
                     defaultValue={""}
                     withItemsBorders={false}
                     classNames={{
