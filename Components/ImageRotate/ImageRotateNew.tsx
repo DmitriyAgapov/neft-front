@@ -236,7 +236,7 @@ export default function ImageRotateNew({
 	alt = '3D object',
 	sensitivity = 1,
 	autoPlay = false,
-	rotationSpeed = 60,
+	rotationSpeed = 30,
 	showControls = true,
 	preloadAll = true // По умолчанию предзагружаем все
 }: RotatableObjectProps) {
