@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { FloatingIndicator, Tabs } from '@mantine/core';
+import { Button, FloatingIndicator, Tabs } from '@mantine/core';
 import classes from './TabsProduct.module.css';
 import styles from "@/Components/Cards/VariantCard.module.css";
 import BlockRendererClient from "@/Components/BlockRendererClient/BlockRendererClient";
@@ -12,7 +12,7 @@ function TabsProduct({data : _data}: {data: any}) {
     const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
     const [value, setValue] = useState<string | null>('description');
     const [controlsRefs, setControlsRefs] = useState<Record<string, HTMLButtonElement | null>>({});
-
+	console.log(_data)
     const setControlRef = (val: string) => (node: HTMLButtonElement) => {
         controlsRefs[val] = node;
         setControlsRefs(controlsRefs);
@@ -30,7 +30,7 @@ function TabsProduct({data : _data}: {data: any}) {
                 <Tabs.Tab value="feature" ref={setControlRef('2')} className={classes.tab}>
                     Доступные опции
                 </Tabs.Tab>
-				{_data.schema ? <Tabs.Tab value="schema" ref={setControlRef('3')} className={classes.tab}>
+				{_data.schema || (_data.gallery && _data.gallery.length > 0) ? <Tabs.Tab value="schema" ref={setControlRef('3')} className={classes.tab}>
                    Схема
                 </Tabs.Tab> : null}
 
@@ -63,7 +63,7 @@ function TabsProduct({data : _data}: {data: any}) {
                     {data.Feature.map((el:any) => <CardFeature key={el.id} {...el} />)}
                 </div>
             </Tabs.Panel>
-			{_data.schema ? <Tabs.Panel value="schema">
+			{_data.schema && _data.schema.image ? <Tabs.Panel value="schema">
 				<div className={"grid md:grid-cols-2 xl:grid-cols-2 gap-x-4"}>
 					<div data-type={"schema-description"} className={"col-start-1 col-end-2 row-start-1 row-end-2 max-w-[24rem]"} style={{
 						position: 'relative',
@@ -77,7 +77,7 @@ function TabsProduct({data : _data}: {data: any}) {
 						margin: '-2rem',
 						width: 'calc(100% + 4rem)'
 					}} data-type={'schema-image'} className={`flex justify-end col-start-1 col-end-3 row-start-1 row-end-2 -mb-8`}>
-						{_data.schema.image.mime ==="video/mp4" ? <video width={"100%"} height={"100%"} style={{
+						{_data.schema.image && _data.schema.image?.mime ==="video/mp4" ? <video width={"100%"} height={"100%"} style={{
 								marginBottom: '-1px',
 								width: '100%',
 							}}  loop autoPlay={true} muted  src={process.env.NEXT_PUBLIC_NEXT_BACK_IMG as string + _data.schema.image.url}/>
@@ -93,7 +93,50 @@ function TabsProduct({data : _data}: {data: any}) {
 					</div>
 				</div>
 
+			</Tabs.Panel> : null}
+			{_data.gallery && _data.gallery.length > 0 ? <Tabs.Panel value="schema" component={"section"}  className={styles.section + " bg-gray-100 md:!p-8 !p-4 rounded-2xl"} data-content={`section-komplekt`}>
+				{/*<div className={"grid md:grid-cols-2 xl:grid-cols-2 gap-x-4"}>*/}
+
+
+						<div data-content={"section_cards"} className={'grid flex xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 max-md:overflow-x-scroll max-md:cursor-grab'}>
+							{_data.gallery.map((item: any) => <div
+								key={item?.documentId} className={'flex w-full h-96 flex-col flex-wrap card_child_category aspect-square bg-white rounded-xl relative'}>
+
+								<div className={'card_child_category_image flex-1'}>
+									<ImageCustoms width={item.width} height={item.height} src={item.url} className={'w-full h-full object-cover rounded-xl'}/>
+								</div>
+							</div>)}
+						</div>
+					{/*<div data-type={"schema-description"} className={"col-start-1 col-end-2 row-start-1 row-end-2 max-w-[24rem]"} style={{*/}
+					{/*	position: 'relative',*/}
+					{/*	zIndex: 2*/}
+					{/*}}>*/}
+					{/*	<BlockRendererClient*/}
+					{/*		content={_data.schema.description}*/}
+					{/*	/>*/}
+					{/*</div>*/}
+					{/*<div style={{*/}
+					{/*	margin: '-2rem',*/}
+					{/*	width: 'calc(100% + 4rem)'*/}
+					{/*}} data-type={'schema-image'} className={`flex justify-end col-start-1 col-end-3 row-start-1 row-end-2 -mb-8`}>*/}
+					{/*	{_data.schema.image.mime ==="video/mp4" ? <video width={"100%"} height={"100%"} style={{*/}
+					{/*			marginBottom: '-1px',*/}
+					{/*			width: '100%',*/}
+					{/*		}}  loop autoPlay={true} muted  src={process.env.NEXT_PUBLIC_NEXT_BACK_IMG as string + _data.schema.image.url}/>*/}
+					{/*		:*/}
+
+					{/*		<ImageCustoms*/}
+					{/*			src={_data.schema.image.url}*/}
+					{/*			width={_data.schema.image.width ?? 640}*/}
+					{/*			height={_data.schema.image.height ?? 480}*/}
+
+					{/*		/>*/}
+					{/*	}*/}
+					{/*</div>*/}
+				{/*</div>*/}
+
 			</Tabs.Panel> : _data.schema}
+
             <Tabs.Panel value="docs">
                 {data.Document.map((el:any) => <p key={el.id}><a href={process.env.NEXT_PUBLIC_NEXT_BACK + el.attachment.url}>{el.title}</a></p>)}
             </Tabs.Panel>
