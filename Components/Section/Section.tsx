@@ -11,7 +11,20 @@ import Events from "@/Components/Events/Events";
 import AboutCards from "@/Components/AboutCards/AboutCards";
 import Gallery from "@/Components/Gallery/Gallery";
 import {ImageCustoms} from "@/Components/ImageCustom";
-
+import { string } from "postcss-selector-parser";
+export type DocsProps = {
+	documentId: string;
+	title: string;
+	file: {
+		url: string
+	};
+}
+export type CategoriesDocsProps = {
+	documentId: string;
+	title: string;
+	order: number;
+	dokumenties: DocsProps[]
+}
 export interface Settings {
     isDescriptionHidden: boolean,
     isShortDescriptionHidden: boolean,
@@ -23,6 +36,7 @@ export type SectonProps = {
     type: string;
     description?: any;
     children?: any;
+	kategorii_dokumentovs?: CategoriesDocsProps[];
     short_dedcription?: any;
     link?: {
         title: string;
@@ -31,7 +45,7 @@ export type SectonProps = {
     cards?: Record<string, unknown | any>[];
     gallery?: Record<string, unknown | any>[];
 }
-const Section = ({title, type, description, children, short_dedcription, cards, gallery, link, settings}:SectonProps & {settings?: Settings}) => {
+const Section = ({title, type, description, children, short_dedcription, cards, kategorii_dokumentovs, gallery, link, settings}:SectonProps & {settings?: Settings}) => {
     switch (type) {
         case 'before_screen':
             return <section className={styles.section} data-content={`section-${type}`}>
@@ -230,7 +244,38 @@ const Section = ({title, type, description, children, short_dedcription, cards, 
                     <Form/>
                 </div>
             </section>
+		case 'docs':
+			console.log()
+			return <section className={styles.section}  data-content={`section-${type}`}>
+				{!settings?.isTitleHidden ? <div data-content={"section_title"}>
+					<h1>
+						{title.split(" ")[0]}
+						<span> {title.split(" ")[1]}</span>
+					</h1>
+					{link ? <div data-content={"section_link"} className={"mt-8"}>
+						<Button size={"lg"} variant={"gray"} component={Link} href={link?.url} rightSection={<LinkForm  className={"w-6 h-6"} />}>{link?.title}</Button>
+					</div> : null}
+				</div>: null}
+				{!settings?.isShortDescriptionHidden ? <div data-content={"section_description"}>
+					<BlockRendererClient content={short_dedcription}/>
+				</div>: null}
 
+				<div data-content={"section_content"}>
+					{kategorii_dokumentovs ? kategorii_dokumentovs.map((card: CategoriesDocsProps) =>
+						<div key={card.documentId} className={'mb-8'}>
+							<div data-content={"card_title"}>
+								<Title unstyled order={3}>
+									{card.title}
+								</Title>
+							</div>
+							<div data-content={"card_content"}>
+								{card.dokumenties && card.dokumenties.length > 0 ? <ul>{card.dokumenties.map((document: DocsProps)=>
+									<li key={document.documentId}><Link href={document.file.url}>{document.title}</Link></li>)}</ul> : null}
+							</div>
+						</div>
+					) : null}
+				</div>
+			</section>
         default:
             return
     }

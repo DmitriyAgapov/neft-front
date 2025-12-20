@@ -50,9 +50,14 @@ export default async function Page({params}: { params: Promise<{ category: strin
     });
 
     if (!categories) return
-    const {title,  description, image, short_dedcription, product_hydraulics, gallery} = categories[0];
+    const {title,  description, image,image_full, short_dedcription, product_hydraulics, gallery} = categories[0];
     const type = "hydraulic-tools"
-
+	const _img = image_full ?? image;
+	const imgProps = {
+		width:_img.width,
+		height: _img.height,
+		src:_img.url
+	}
     return <>
         <Breadcrumbs/>
         <section className={styles.section} data-content={`section-${type}`}>
@@ -80,7 +85,7 @@ export default async function Page({params}: { params: Promise<{ category: strin
             <ProductRoot>
                 <div className={styless.ProductSelector} data-type={`product-${type}`}>
                     <div className={styless.wrapper} data-content={`wrapper-${type}`}>
-                        <ImageCustoms width={image.width} height={image.height} src={image.url}/>
+                        <ImageCustoms {...imgProps}/>
                     </div>
                 </div>
             </ProductRoot>

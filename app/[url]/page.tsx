@@ -36,9 +36,9 @@ export default async function Page({params}: { params: Promise<{ url: string }> 
   const {pages} = await queryWrapper(pagePage, {
       "url": url
   });
-    console.log(pages, 'pages')
   const page = pages[0];
-    if (!page) return  notFound()
+  if (!page) return  notFound()
+	console.log(page);
   return (
       <>
           {!page?.settings.isShortDescriptionHidden && !page?.settings.isTitleHidden ?<section className={styles.section} data-content={`section-page`}>

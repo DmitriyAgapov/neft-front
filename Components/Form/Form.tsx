@@ -22,6 +22,8 @@ const Form = () => {
             company: '',
             cct: '',
             luk: '',
+			temp: '',
+			climat: '',
             sreda: '',
             volume: "",
             purpose: 'mixers',
@@ -62,8 +64,8 @@ const Form = () => {
                         label: "text-md font-semibold"
                     }}
                     label="Люк-лаз"
-                    data={["600x900"]}
-                    key={form.key('luk')}
+                    data={["600x900", "500", "600"]}
+					key={form.key('luk')}
                     {...form.getInputProps('luk')}
                 />
             </div>
@@ -76,6 +78,32 @@ const Form = () => {
                     {...form.getInputProps('cct')}
                 />
             </div>
+			<div className={''}>
+				<Select
+					withAsterisk
+					classNames={{
+						label: "text-md font-semibold"
+					}}
+					label="Температура"
+					data={["до 100°", "100°-200°"]}
+					key={form.key('temp')}
+					{...form.getInputProps('temp')}
+				/>
+			</div>
+			<div className={''}>
+				<Select
+					withAsterisk
+					classNames={{
+						label: "text-md font-semibold"
+					}}
+					label="Климатическое исполнение"
+					data={["УГ.5", "УХП1"]}
+					key={form.key('climat')}
+					{...form.getInputProps('climat')}
+				/>
+			</div>
+
+
 
             <div className={''}>
                 <TextInput

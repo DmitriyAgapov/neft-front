@@ -411,5 +411,23 @@
             padding-top: 0;
         }
     }
+	&[data-content="section-docs"] {
+		padding: 2rem 0 4rem;
+		@media screen and (min-width: 74em) {
+				grid-column: 5/-1;
+				[data-content="section_content"] {
+					&:first-child {
+						margin-top: 0;
+						h3 {
+							margin-top: 0;
+						}
+					}
+				}
+		}
+		@media screen and (max-width: 48em) {
+			padding: 0 0 2rem;
+		}
+
+	}
 
 }

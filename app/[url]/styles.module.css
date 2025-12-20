@@ -57,7 +57,20 @@
         }
     }
     &[data-content="section-page"] {
+		@media screen and (max-width: 74em) {
+			display: grid;
+			[data-content="section_description"] {
+				margin-top: 0;
+			}
+			[data-content="section_title"] {
+				order: -1;
+				margin: 0;
+				h1 {
+					margin-top: 0;
+				}
+			}
 
+		}
     }
     @media screen  and (max-width: 48em){
         display: block;

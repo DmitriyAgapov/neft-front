@@ -45,8 +45,8 @@ export default async function Page({params}: { params: Promise<{ slug: string }>
     });
 
     if (!productHydraulics[0]) return
-    const {title, description, image,image_full, short_dedcription, cards, produkty_instrumenties, gallery} = productHydraulics[0];
-	console.log(produkty_instrumenties)
+    const {title,  image,image_full, short_dedcription, cards, specs, produkty_instrumenties, gallery} = productHydraulics[0];
+	console.log(productHydraulics);
 	const hasRotate = urls.hasOwnProperty(slug);
 	const images:string[] =  [];
 	for (let i = 1; i < 181; i++) {

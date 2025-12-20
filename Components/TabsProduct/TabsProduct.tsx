@@ -12,7 +12,7 @@ function TabsProduct({data : _data}: {data: any}) {
     const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
     const [value, setValue] = useState<string | null>('description');
     const [controlsRefs, setControlsRefs] = useState<Record<string, HTMLButtonElement | null>>({});
-	console.log(_data)
+
     const setControlRef = (val: string) => (node: HTMLButtonElement) => {
         controlsRefs[val] = node;
         setControlsRefs(controlsRefs);
@@ -34,9 +34,9 @@ function TabsProduct({data : _data}: {data: any}) {
                    Схема
                 </Tabs.Tab> : null}
 
-                <Tabs.Tab value="docs" ref={setControlRef('4')} className={classes.tab}>
+				{data.dokumenties && data.dokumenties.length > 0 ? <Tabs.Tab value="docs" ref={setControlRef('4')} className={classes.tab}>
                     Документы и сертификаты
-                </Tabs.Tab>
+                </Tabs.Tab> : null}
 
                 <FloatingIndicator
                     target={value ? controlsRefs[value] : null}
@@ -137,9 +137,9 @@ function TabsProduct({data : _data}: {data: any}) {
 
 			</Tabs.Panel> : _data.schema}
 
-            <Tabs.Panel value="docs">
-                {data.Document.map((el:any) => <p key={el.id}><a href={process.env.NEXT_PUBLIC_NEXT_BACK + el.attachment.url}>{el.title}</a></p>)}
-            </Tabs.Panel>
+			{data.dokumenties && data.dokumenties.length > 0 ? <Tabs.Panel value="docs">
+				<ul>{data.dokumenties.map((el:any) => <li key={el.documentId}><a href={process.env.NEXT_PUBLIC_NEXT_BACK + el.file.url}>{el.title}</a></li>)}</ul>
+            </Tabs.Panel> : null}
         </Tabs>
     );
 }

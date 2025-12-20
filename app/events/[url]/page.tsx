@@ -48,9 +48,9 @@ export default async function PageEvent({params}: { params: Promise<{ url: strin
 
               <div data-content={"section_title"}>
 				  <BreadcrumbsBlock/>
-                  <h3  className={"!my-2"}>
+                  <h1  className={"!my-2 text-4xl"}>
                       {page.title}
-                  </h3>
+                  </h1>
                   <Text><DateFormat date={page.create_date} formatier="DD MMMM YYYY" /></Text>
               </div>
               <div data-content={"section_content"}>

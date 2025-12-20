@@ -16,7 +16,7 @@ function TabsProductControls({data : _data}: {data: any}) {
     const [controlsRefs, setControlsRefs] = useState<Record<string, HTMLButtonElement | null>>({});
 	const location = usePathname();
 	const params = useParams();
-	console.log(data)
+	console.log(data.specs)
     const setControlRef = (val: string) => (node: HTMLButtonElement) => {
         controlsRefs[val] = node;
         setControlsRefs(controlsRefs);
@@ -38,7 +38,7 @@ function TabsProductControls({data : _data}: {data: any}) {
 					{location.includes('/hydraulic-tools') ? 'Комплектация' : 'Схема'}
                 </Tabs.Tab> : null}
 
-				{data.Document && data.Document.length > 0 ? <Tabs.Tab value="docs" ref={setControlRef('4')} className={classes.tab}>
+				{data.dokumenties && data.dokumenties.length > 0 ? <Tabs.Tab value="docs" ref={setControlRef('4')} className={classes.tab}>
                     Документы и сертификаты
                 </Tabs.Tab> : null}
 
@@ -140,8 +140,8 @@ function TabsProductControls({data : _data}: {data: any}) {
 
             </Tabs.Panel> : _data.schema}
 
-            {data.Document && data.Document.length > 0 ? <Tabs.Panel value="docs">
-                {data.Document.map((el:any) => <p key={el.id}><a href={process.env.NEXT_PUBLIC_NEXT_BACK + el.attachment.url}>{el.title}</a></p>)}
+            {data.dokumenties && data.dokumenties.length > 0 ? <Tabs.Panel value="docs">
+				<ul>{data.dokumenties.map((el:any) => <li key={el.documentId}><a href={process.env.NEXT_PUBLIC_NEXT_BACK + el.file.url}>{el.title}</a></li>)}</ul>
             </Tabs.Panel> : null}
         </Tabs>
     );

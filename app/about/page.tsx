@@ -6,8 +6,8 @@ import styles from "../[url]/styles.module.css";
 import type {Metadata} from "next";
 import {config} from "@/utils/gql/config";
 import {notFound} from "next/navigation";
-export async function generateMetadata(): Promise<Metadata> {
 
+export async function generateMetadata(): Promise<Metadata> {
     const {pages} = await queryWrapper(pagePage, {
         "url": "about"
     });
