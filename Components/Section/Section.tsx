@@ -270,7 +270,7 @@ const Section = ({title, type, description, children, short_dedcription, cards, 
 							</div>
 							<div data-content={"card_content"}>
 								{card.dokumenties && card.dokumenties.length > 0 ? <ul>{card.dokumenties.map((document: DocsProps)=>
-									<li key={document.documentId}><Link href={document.file.url}>{document.title}</Link></li>)}</ul> : null}
+									<li key={document.documentId}><Link href={process.env.NEXT_BACK_IMG + document.file.url}>{document.title}</Link></li>)}</ul> : null}
 							</div>
 						</div>
 					) : null}
